@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <description>Wiring the dependencies for the Facility Management Application.</description>
+
+    <context:component-scan base-package="com.lmp" />
+
+    <!-- Models -->
+    <bean id="facilityDetail" class="com.lmp.model.FacilityDetailImpl" scope="prototype"/>
+    <bean id="maintenance" class="com.lmp.model.MaintenanceImpl" scope="prototype"/>
+    <bean id="maintenanceRequest" class="com.lmp.model.MaintenanceRequestImpl" scope="prototype"/>
+    <bean id="facilityProblem" class="com.lmp.model.FacilityProblemImpl" scope="prototype"/>
+    <bean id="facilityUse" class="com.lmp.model.FacilityUseImpl" scope="prototype"/>
+    <bean id="inspection" class="com.lmp.model.InspectionImpl" scope="prototype"/>
+
+    <!--<bean id="customer" class="com.facility.model.CustomerImpl" scope="prototype"/>
+    <bean id="facilityProblem" class="com.facility.model.FacilityProblemImpl" scope="prototype"/>
+    <bean id="inspection" class="com.facility.model.InspectionImpl" scope="prototype"/>-->
+
+    <!--<bean id="maintenanceRequest" class="com.facility.model.MaintenanceRequestImpl" scope="prototype"/>
+    <bean id="maintenanceSchedule" class="com.facility.model.MaintenanceScheduleImpl" scope="prototype"/>
+    <bean id="facilityUse" class="com.facility.model.FacilityUseImpl" scope="prototype">
+        <property name="customerList">
+            <list>
+                    <ref bean="customer"/>
+            </list>
+        </property>
+    </bean>-->
+
+    <bean id="facility" class="com.lmp.model.FacilityImpl" scope="prototype">
+        <property name="facilityDetailList">
+            <list>
+                <ref bean="facilityDetail"/>
+            </list>
+        </property>
+        <property name="maintenanceList">
+            <list>
+                <ref bean="maintenance"/>
+            </list>
+        </property>
+        <property name="maintenanceRequestList">
+            <list>
+                <ref bean="maintenanceRequest"/>
+            </list>
+        </property>
+        <property name="facilityProblemList">
+            <list>
+                <ref bean="facilityProblem"/>
+            </list>
+        </property>
+        <property name="facilityUseList">
+            <list>
+                <ref bean="facilityUse"/>
+            </list>
+        </property>
+        <property name="inspectionList">
+            <list>
+                <ref bean="inspection"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- DAOs -->
+    <bean id="facilityDao" class="com.lmp.dao.FacilityDao" scope="prototype"></bean>
+    <bean id="inspectionDao" class="com.lmp.dao.InspectionDao" scope="prototype"></bean>
+    <bean id="maintenanceDao" class="com.lmp.dao.MaintenanceDao" scope="prototype"></bean>
+    <bean id="useDao" class="com.lmp.dao.UseDao" scope="prototype"></bean>
+
+    <!-- Services -->
+    <bean id="facilityService" class="com.lmp.service.FacilityService" scope="prototype">
+        <property name="facilityDao">
+            <ref bean="facilityDao"></ref>
+        </property>
+    </bean>
+    <bean id="inspectionService" class="com.lmp.service.InspectionService" scope="prototype">
+        <property name="inspectionDao">
+            <ref bean="inspectionDao"></ref>
+        </property>
+    </bean>
+    <bean id="maintenanceService" class="com.lmp.service.MaintenanceService" scope="prototype">
+        <property name="maintenanceDao">
+            <ref bean="maintenanceDao"></ref>
+        </property>
+    </bean>
+    <bean id="useService" class="com.lmp.service.UseService" scope="prototype">
+        <property name="useDao">
+            <ref bean="useDao"></ref>
+        </property>
+        <property name="facilityDao">
+            <ref bean="facilityDao"></ref>
+        </property>
+    </bean>
+</beans>
