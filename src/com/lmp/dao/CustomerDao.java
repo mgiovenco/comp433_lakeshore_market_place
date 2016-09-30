@@ -18,10 +18,10 @@ import java.util.List;
  */
 public class CustomerDao {
 
-    private static final String SELECT_CUSTOMER = "SELECT id, first_name, last_name, phone, active, created_on, updated_on from customer where id = ?";
-    private static final String SELECT_ALL_CUSTOMERS = "SELECT id, first_name, last_name, phone, active, created_on, updated_on from customer";
-    private static final String INSERT_CUSTOMER = "INSERT into customer (first_name, last_name, phone, active, created_on) values (?, ?, ?, ?, ?)";
-    private static final String UPDATE_CUSTOMER = "UPDATE customer set first_name = ?, last_name = ?, phone = ?, active = ?, updated_on = ? where id = ?";
+    private static final String SELECT_CUSTOMER = "SELECT id, first_name, last_name, phone, email, active, created_on, updated_on from customer where id = ?";
+    private static final String SELECT_ALL_CUSTOMERS = "SELECT id, first_name, last_name, phone, email, active, created_on, updated_on from customer";
+    private static final String INSERT_CUSTOMER = "INSERT into customer (first_name, last_name, phone, email, active, created_on) values (?, ?, ?, ?, ?, ?)";
+    private static final String UPDATE_CUSTOMER = "UPDATE customer set first_name = ?, last_name = ?, phone = ?, email = ?, active = ?, updated_on = ? where id = ?";
     private static final String INACTIVATE_CUSTOMER = "UPDATE customer set active = ?, updated_on = ? where id = ?";
 
     private static final String SELECT_CUSTOMER_ADDRESS = "SELECT id, address_line_1, address_line_2, city, state, postal_code, country, billing_address, shipping_address, active, created_on, updated_on, customer_id from customer_address where id = ?";
@@ -52,7 +52,7 @@ public class CustomerDao {
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-                customer = new Customer(resultSet.getInt("id"), resultSet.getString("first_name"), resultSet.getString("last_name"), resultSet.getString("phone"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on"));
+                customer = new Customer(resultSet.getInt("id"), resultSet.getString("first_name"), resultSet.getString("last_name"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on"));
             }
         } catch (SQLException e) {
             System.out.println("SQLException: " + e);
@@ -76,7 +76,7 @@ public class CustomerDao {
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-                customerList.add(new Customer(resultSet.getInt("id"), resultSet.getString("first_name"), resultSet.getString("last_name"), resultSet.getString("phone"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on")));
+                customerList.add(new Customer(resultSet.getInt("id"), resultSet.getString("first_name"), resultSet.getString("last_name"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on")));
             }
         } catch (SQLException e) {
             System.out.println("SQLException: " + e);
@@ -93,8 +93,9 @@ public class CustomerDao {
                 ps.setString(1, customer.getFirstName());
                 ps.setString(2, customer.getLastName());
                 ps.setString(3, customer.getPhone());
-                ps.setBoolean(4, customer.isActive());
-                ps.setTimestamp(5, new Timestamp(new java.util.Date().getTime()));
+                ps.setString(4, customer.getEmail());
+                ps.setBoolean(5, customer.isActive());
+                ps.setTimestamp(6, new Timestamp(new java.util.Date().getTime()));
 
                 int result = ps.executeUpdate();
 
@@ -126,9 +127,10 @@ public class CustomerDao {
             ps.setString(1, customer.getFirstName());
             ps.setString(2, customer.getLastName());
             ps.setString(3, customer.getPhone());
-            ps.setBoolean(4, customer.isActive());
-            ps.setTimestamp(5, new Timestamp(new java.util.Date().getTime()));
-            ps.setInt(6, customer.getId());
+            ps.setString(4, customer.getEmail());
+            ps.setBoolean(5, customer.isActive());
+            ps.setTimestamp(6, new Timestamp(new java.util.Date().getTime()));
+            ps.setInt(7, customer.getId());
 
             int result = ps.executeUpdate();
 

@@ -15,11 +15,11 @@ public class TestClient {
         System.out.println("getCustomer(1): " + customerService.getCustomer(1));
         System.out.println("listCustomers: " + customerService.listCustomers());
 
-        Customer customer1 = new Customer("Dan", "Danson", "847-123-4567", true);
+        Customer customer1 = new Customer("Dan", "Danson", "847-123-4567", "test1@test.com", true);
         customerService.addCustomer(customer1);
         System.out.println("listCustomers - after new customer add: " + customerService.listCustomers());
 
-        Customer customer2 = new Customer(1, "Edward", "Edwardson", "444-555-6666", true);
+        Customer customer2 = new Customer(1, "Edward", "Edwardson", "444-555-6666", "test2@test.com", true);
         customerService.updateCustomer(customer2);
         System.out.println("listCustomers - after update: " + customerService.listCustomers());
 
