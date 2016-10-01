@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b93bcc7b-809f-403d-b923-7981225cb9a4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/lmp/service/CustomerOrderService.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/lmp/model/OrderTracking.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/lmp/service/OrderService.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lmp/dao/CustomerDao.java" afterPath="$PROJECT_DIR$/src/com/lmp/dao/CustomerDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lmp/model/Customer.java" afterPath="$PROJECT_DIR$/src/com/lmp/model/Customer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lmp/model/Order.java" afterPath="$PROJECT_DIR$/src/com/lmp/model/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lmp/view/TestClient.java" afterPath="$PROJECT_DIR$/src/com/lmp/view/TestClient.java" />
-    </list>
+    <list default="true" id="b93bcc7b-809f-403d-b923-7981225cb9a4" name="Default" comment="" />
     <ignored path="comp433_lakeshore_market_place.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1060,16 +1051,16 @@
       <workItem from="1474824019935" duration="1446000" />
       <workItem from="1475180420990" duration="20934000" />
       <workItem from="1475262355276" duration="1272000" />
-      <workItem from="1475267206507" duration="15499000" />
+      <workItem from="1475267206507" duration="15609000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39151000" />
+    <option name="totallyTimeSpent" value="39261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="831" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1087,7 +1078,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2553648" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20617111" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20617111" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959327" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
