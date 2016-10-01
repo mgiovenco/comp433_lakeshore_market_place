@@ -1,6 +1,5 @@
 package com.lmp.model;
 
-
 import java.util.Date;
 
 /**
