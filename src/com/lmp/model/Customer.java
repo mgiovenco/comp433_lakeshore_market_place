@@ -16,15 +16,6 @@ public class Customer {
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
-    /**
-     * Constructor used for INSERTS.
-     *
-     * @param firstName
-     * @param lastName
-     * @param phone
-     * @param email
-     * @param active
-     */
     public Customer(String firstName, String lastName, String phone, String email, boolean active) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -33,16 +24,6 @@ public class Customer {
         this.active = active;
     }
 
-    /**
-     * Constructor used for UPDATES.
-     *
-     * @param id
-     * @param firstName
-     * @param lastName
-     * @param phone
-     * @param email
-     * @param active
-     */
     public Customer(int id, String firstName, String lastName, String phone, String email, boolean active) {
         this.id = id;
         this.firstName = firstName;
@@ -52,18 +33,6 @@ public class Customer {
         this.active = active;
     }
 
-    /**
-     * Constructor used for SELECTS.
-     *
-     * @param id
-     * @param firstName
-     * @param lastName
-     * @param phone
-     * @param email
-     * @param active
-     * @param createdOn
-     * @param updatedOn
-     */
     public Customer(int id, String firstName, String lastName, String phone, String email, boolean active, Timestamp createdOn, Timestamp updatedOn) {
         this.id = id;
         this.firstName = firstName;
