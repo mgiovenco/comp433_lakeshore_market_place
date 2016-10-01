@@ -145,4 +145,18 @@ CREATE TABLE Product\
   PRIMARY KEY (Product_id),\
   FOREIGN KEY (Category_id) REFERENCES Category_id(Category_id),\
   FOREIGN KEY (Partner_id) REFERENCES Partners(Partner_id)\
+);/
+CREATE TABLE Cart
+(/
+  Cart_id VARCHAR NOT NULL,
+  Customer_id VARCHAR NOT NULL,
+  Product_id VARCHAR NOT NULL,
+  Product_name VARCHAR NOT NULL,
+  Product_image NODATATYPE NOT NULL,
+  Price VARCHAR NOT NULL,
+  Quantity VARCHAR NOT NULL,
+  Subtotal VARCHAR NOT NULL,
+  PRIMARY KEY (Cart_id),
+  FOREIGN KEY (Customer_id) REFERENCES Customer_id(Customer_id),
+  FOREIGN KEY (Product _id) REFERENCES Product (Product _id)
 );}
