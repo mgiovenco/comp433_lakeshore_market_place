@@ -85,6 +85,12 @@ public class CustomerDao {
         return customerList;
     }
 
+    /**
+     * Create customer object.
+     *
+     * @param customer
+     * @throws Exception
+     */
     public void createCustomer(Customer customer) throws Exception {
         if (customer != null) {
             try {

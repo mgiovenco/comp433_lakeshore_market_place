@@ -1,120 +1,90 @@
 package com.lmp.model;
 
-import java.util.Date;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 /**
  * This class represents order information.
  */
 public class Order {
 
-	private int customerID;
-     private int paymentID;
-	private int orderID;
-	private int orderStatus;
-	private String trackingNumber;
-     private Date datePurchased;
-	private Date dateRefunded;
+    private int id;
+    private BigDecimal orderTotal;
+    private String status;
+    private Timestamp createdOn;
+    private Timestamp updatedOn;
+    private int billingInfoId;
+    private int shippingInfoId;
 
-
-    /**
-     * Constructor used for INSERTS.
-     *
-     * @param customerID
-     * @param paymentID
-     * @param orderID
-     * @param orderStatus
-	* @param trackingNumber
-     */
-    public Order(int customerID, int paymentID, int orderID, int orderStatus, String trackingNumber) {
-        this.customerID = customerID;
-        this.paymentID = paymentID;
-        this.orderID = orderID;
-        this.orderStatus = orderStatus;
-        this.trackingNumber = trackingNumber;
+    public int getId() {
+        return id;
     }
 
-    /**
-     * Constructor used for UPDATES.
-     *
-     * @param customerID
-     * @param paymentID
-     * @param phone
-     * @param orderID
-     * @param orderStatus
-	* @param trackingNumber
-     */
-    public Order(int customerID, int paymentID, int orderID, int orderStatus, String trackingNumber) {
-        this.customerID = customerID;
-        this.paymentID = paymentID;
-        this.orderID = orderID;
-        this.orderStatus = orderStatus;
-        this.trackingNumber = trackingNumber;
+    public BigDecimal getOrderTotal() {
+        return orderTotal;
     }
 
-    /**
-     * Constructor used for SELECTS.
-     *
-     * @param customerID
-     * @param paymentID
-     * @param phone
-     * @param orderID
-     * @param orderStatus
-	* @param trackingNumber
-     * @param datePurchased
-     * @param dateRefunded
-     */
-    public Order(int customerID, int paymentID, int orderID, int orderStatus, String trackingNumber, Date datePurchased, Date dateRefunded) {
-        this.customerID = customerID;
-        this.paymentID = paymentID;
-        this.orderID = orderID;
-        this.orderStatus = orderStatus;
-        this.trackingNumber = trackingNumber;
-        this.datePurchased = datePurchased;
-        this.updatedOn = updatedOn;
+    public String getStatus() {
+        return status;
     }
 
-    public Date getDatePurchased() {
-		return datePurchased;
-	}
-	public void setDatePurchased(Date datePurchased) {
-		this.datePurchased = datePurchased;
-	}
-	public Date getDateRefunded() {
-		return dateRefunded;
-	}
-	public void setDateRefunded(Date dateRefunded) {
-		this.dateRefunded = dateRefunded;
-	}
-	public int getCustomerID() {
-		return customerID;
-	}
-	public void setCustomerID(int customerID) {
-		this.customerID = customerID;
-	}
-	public int getOrderID() {
-		return orderID;
-	}
-	public void setOrderID(int orderID) {
-		this.orderID = orderID;
-	}
-	public int getOrderStatusCode() {
-		return orderStatusCode;
-	}
-	public void setOrderStatusCode(int orderStatusCode) {
-		this.orderStatusCode = orderStatusCode;
-	}
-	public int getPaymentID() {
-		return paymentID;
-	}
-	public void setPaymentID(int paymentID) {
-		this.paymentID = paymentID;
-	}
-	public String getTrackingNumber() {
-		return trackingNumber;
-	}
-	public void setTrackingNumber(String trackingNumber) {
-		this.trackingNumber = trackingNumber;
-	}	
+    public Timestamp getCreatedOn() {
+        return createdOn;
+    }
+
+    public Timestamp getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public int getBillingInfoId() {
+        return billingInfoId;
+    }
+
+    public int getShippingInfoId() {
+        return shippingInfoId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+
+        Order order = (Order) o;
+
+        if (getId() != order.getId()) return false;
+        if (getBillingInfoId() != order.getBillingInfoId()) return false;
+        if (getShippingInfoId() != order.getShippingInfoId()) return false;
+        if (getOrderTotal() != null ? !getOrderTotal().equals(order.getOrderTotal()) : order.getOrderTotal() != null)
+            return false;
+        if (getStatus() != null ? !getStatus().equals(order.getStatus()) : order.getStatus() != null) return false;
+        if (getCreatedOn() != null ? !getCreatedOn().equals(order.getCreatedOn()) : order.getCreatedOn() != null)
+            return false;
+        return getUpdatedOn() != null ? getUpdatedOn().equals(order.getUpdatedOn()) : order.getUpdatedOn() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + (getOrderTotal() != null ? getOrderTotal().hashCode() : 0);
+        result = 31 * result + (getStatus() != null ? getStatus().hashCode() : 0);
+        result = 31 * result + (getCreatedOn() != null ? getCreatedOn().hashCode() : 0);
+        result = 31 * result + (getUpdatedOn() != null ? getUpdatedOn().hashCode() : 0);
+        result = 31 * result + getBillingInfoId();
+        result = 31 * result + getShippingInfoId();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", orderTotal=" + orderTotal +
+                ", status='" + status + '\'' +
+                ", createdOn=" + createdOn +
+                ", updatedOn=" + updatedOn +
+                ", billingInfoId=" + billingInfoId +
+                ", shippingInfoId=" + shippingInfoId +
+                '}';
+    }
 }
-
-    
