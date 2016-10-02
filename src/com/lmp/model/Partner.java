@@ -24,13 +24,13 @@ public class Partner {
 
     public Partner(String PartnerName, String addressLine1, String addressLine2, String city, String state, String postalCode, String country, String phone, String email, boolean active) {
         this.PartnerName = PartnerName;
-this.addressLine1 = addressLine1;
-this.addressLine2 = addressLine2;
-this.city = city;
-this.state = state;
-this.postalCode = postalCode;
-this.country = country;
-this.phone = phone;
+        this.addressLine1 = addressLine1;
+        this.addressLine2 = addressLine2;
+        this.city = city;
+        this.state = state;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.phone = phone;
         this.email = email;
         this.active = active;
     }
@@ -38,13 +38,13 @@ this.phone = phone;
     public Partner(int Id, String PartnerName, String addressLine1, String addressLine2, String city, String state, String postalCode, String country, String phone, String email, boolean active) {
         this.Id = Id;
         this.PartnerName = PartnerName;
-this.addressLine1 = addressLine1;
-this.addressLine2 = addressLine2;
-this.city = city;
-this.state = state;
-this.postalCode = postalCode;
-this.country = country;
-this.phone = phone;
+        this.addressLine1 = addressLine1;
+        this.addressLine2 = addressLine2;
+        this.city = city;
+        this.state = state;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.phone = phone;
         this.email = email;
         this.active = active;
     }
@@ -52,13 +52,13 @@ this.phone = phone;
     public Partner(int Id, String PartnerName, String addressLine1, String addressLine2, String city, String state, String postalCode, String country, String phone, String email, boolean active, Timestamp createdOn, Timestamp updatedOn) {
         this.Id = Id;
         this.PartnerName = PartnerName;
-this.addressLine1 = addressLine1;
-this.addressLine2 = addressLine2;
-this.city = city;
-this.state = state;
-this.postalCode = postalCode;
-this.country = country;
-this.phone = phone;
+        this.addressLine1 = addressLine1;
+        this.addressLine2 = addressLine2;
+        this.city = city;
+        this.state = state;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.phone = phone;
         this.email = email;
         this.active = active;
         this.createdOn = createdOn;
@@ -94,7 +94,7 @@ this.phone = phone;
     }
 
     public String getCountry() {
-return country;
+        return country;
 
     public String getPhone() {
         return phone;
