@@ -2,7 +2,8 @@ package com.lmp.service;
 
 import com.lmp.dao.CustomerOrderDao;
 import com.lmp.model.CustomerOrder;
-import com.lmp.model.CustomerOrderDetailed;
+import com.lmp.model.CustomerOrderDetail;
+import com.lmp.model.CustomerOrderComplete;
 import com.lmp.model.Payment;
 
 import java.sql.SQLException;
@@ -48,7 +49,7 @@ public class CustomerOrderService {
      * @return
      * @throws SQLException
      */
-    public CustomerOrderDetailed getDetailedCustomerOrder(int id) throws SQLException {
+    public CustomerOrderComplete getDetailedCustomerOrder(int id) throws SQLException {
         return customerOrderDao.selectDetailedCustomerOrder(id);
     }
 
@@ -120,5 +121,34 @@ public class CustomerOrderService {
      */
     public List<Payment> getPaymentsByOrderId(int id) {
         return customerOrderDao.selectPaymentsByOrderId(id);
+    }
+
+    /**
+     * Create single customer order detail.
+     *
+     * @param customerOrderDetail
+     */
+    public void addCustomerOrderDetail(CustomerOrderDetail customerOrderDetail) throws Exception {
+        customerOrderDao.createCustomerOrderDetail(customerOrderDetail);
+    }
+
+    /**
+     * Select customer order detail.
+     *
+     * @param id
+     * @return
+     */
+    public CustomerOrderDetail getCustomerOrderDetail(int id) {
+        return customerOrderDao.selectCustomerOrderDetail(id);
+    }
+
+    /**
+     * Select all customer order details by order id.
+     *
+     * @param id
+     * @return
+     */
+    public List<CustomerOrderDetail> getCustomerOrderDetailsByOrderId(int id) {
+        return customerOrderDao.selectCustomerOrderDetailsByOrderId(id);
     }
 }

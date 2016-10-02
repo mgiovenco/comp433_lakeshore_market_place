@@ -1,7 +1,8 @@
 package com.lmp.dao;
 
 import com.lmp.model.CustomerOrder;
-import com.lmp.model.CustomerOrderDetailed;
+import com.lmp.model.CustomerOrderComplete;
+import com.lmp.model.CustomerOrderDetail;
 import com.lmp.model.Payment;
 
 import java.sql.Connection;
@@ -29,10 +30,12 @@ public class CustomerOrderDao {
 
     private static final String SELECT_PAYMENT = "SELECT id, customer_order_id, type, status, created_on, updated_on from payment where id = ?";
     private static final String SELECT_ALL_PAYMENTS_BY_ORDERID = "SELECT id, customer_order_id, type, status, created_on, updated_on from payment where customer_order_id = ?";
-    private static final String INSERT_PAYMENT= "INSERT into payment (customer_order_id, type, status, created_on) values (?, ?, ?, ?)";
+    private static final String INSERT_PAYMENT = "INSERT into payment (customer_order_id, type, status, created_on) values (?, ?, ?, ?)";
     private static final String UPDATE_PAYMENT = "UPDATE payment set status = ?, updated_on = ? where id = ?";
 
-
+    private static final String SELECT_CUSTOMER_ORDER_DETAIL = "SELECT id, customer_order_id, product_id, created_on, updated_on from customer_order_detail where id = ?";
+    private static final String INSERT_CUSTOMER_ORDER_DETAIL = "INSERT INTO customer_order_detail (customer_order_id, product_id, created_on) values (?, ?, ?)";
+    private static final String SELECT_CUSTOMER_ORDER_DETAILS_BY_ORDER_ID = "select cod.id, cod.customer_order_id, cod.product_id, cod.created_on, cod.updated_on from customer_order_detail cod join customer_order co on (cod.customer_order_id = co.id) where co.id = ?";
 
     /**
      * Select single customer order by id
@@ -92,9 +95,9 @@ public class CustomerOrderDao {
      * @param id
      * @return
      */
-    public CustomerOrderDetailed selectDetailedCustomerOrder(int id) throws SQLException {
+    public CustomerOrderComplete selectDetailedCustomerOrder(int id) throws SQLException {
 
-        CustomerOrderDetailed customerOrderDetailed = null;
+        CustomerOrderComplete customerOrderDetailed = null;
 
         try {
             Connection conn = DBHelper.getconnection();
@@ -103,7 +106,7 @@ public class CustomerOrderDao {
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-                customerOrderDetailed = new CustomerOrderDetailed(
+                customerOrderDetailed = new CustomerOrderComplete(
                         resultSet.getInt("co.id"), resultSet.getBigDecimal("co.order_total"), resultSet.getString("co.order_status"), resultSet.getString("co.tracking_id"), resultSet.getInt("co.customer_id"), resultSet.getInt("co.billing_info_id"), resultSet.getInt("co.shipping_info_id"), resultSet.getTimestamp("co.created_on"), resultSet.getTimestamp("co.updated_on"),
                         resultSet.getString("cab.address_line_1"), resultSet.getString("cab.address_line_2"), resultSet.getString("cab.city"), resultSet.getString("cab.state"), resultSet.getString("cab.postal_code"), resultSet.getString("cab.country"),
                         resultSet.getString("cas.address_line_1"), resultSet.getString("cas.address_line_2"), resultSet.getString("cas.city"), resultSet.getString("cas.state"), resultSet.getString("cas.postal_code"), resultSet.getString("cas.country"));
@@ -316,5 +319,91 @@ public class CustomerOrderDao {
         }
 
         return paymentList;
+    }
+
+    /**
+     * Create customer order detail.
+     *
+     * @param customerOrderDetail
+     */
+    public void createCustomerOrderDetail(CustomerOrderDetail customerOrderDetail) throws Exception {
+        if (customerOrderDetail != null) {
+            try {
+                Connection conn = DBHelper.getconnection();
+                PreparedStatement ps = conn.prepareStatement(INSERT_CUSTOMER_ORDER_DETAIL, Statement.RETURN_GENERATED_KEYS);
+                ps.setInt(1, customerOrderDetail.getCustomerOrderId());
+                ps.setInt(2, customerOrderDetail.getProductId());
+                ps.setTimestamp(3, new Timestamp(new java.util.Date().getTime()));
+
+                int result = ps.executeUpdate();
+
+                if (result == 0) {
+                    throw new SQLException("Creating customer order detail failed, no rows affected.");
+                }
+
+                try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        System.out.println("GeneratedKey: " + generatedKeys.getInt(1));
+                    } else {
+                        throw new SQLException("Creating customer order detail failed, no ID obtained.");
+                    }
+                }
+
+            } catch (SQLException e) {
+                System.out.println("SQLException: " + e);
+            }
+        } else {
+            throw new Exception("Cannot insert null customer order detail object");
+        }
+    }
+
+    /**
+     * Get single customer order detail.
+     *
+     * @param id
+     * @return
+     */
+    public CustomerOrderDetail selectCustomerOrderDetail(int id) {
+        CustomerOrderDetail customerOrderDetail = null;
+
+        try {
+            Connection conn = DBHelper.getconnection();
+            PreparedStatement ps = conn.prepareStatement(SELECT_CUSTOMER_ORDER_DETAIL, id);
+            ps.setInt(1, id);
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                customerOrderDetail = new CustomerOrderDetail(resultSet.getInt("id"), resultSet.getInt("customer_order_id"), resultSet.getInt("product_id"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on"));
+            }
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e);
+        }
+
+        return customerOrderDetail;
+    }
+
+    /**
+     * Get all customer order detail records for particular order id.
+     *
+     * @param id
+     * @return
+     */
+    public List<CustomerOrderDetail> selectCustomerOrderDetailsByOrderId(int id) {
+        List<CustomerOrderDetail> customerOrderDetailList = new ArrayList<>();
+
+        try {
+            Connection conn = DBHelper.getconnection();
+            PreparedStatement ps = conn.prepareStatement(SELECT_CUSTOMER_ORDER_DETAILS_BY_ORDER_ID, id);
+            ps.setInt(1, id);
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                customerOrderDetailList.add(new CustomerOrderDetail(resultSet.getInt("id"), resultSet.getInt("customer_order_id"), resultSet.getInt("product_id"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on")));
+            }
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e);
+        }
+
+        return customerOrderDetailList;
     }
 }

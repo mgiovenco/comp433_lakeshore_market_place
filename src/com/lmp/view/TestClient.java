@@ -6,6 +6,7 @@ import com.lmp.model.Customer;
 import com.lmp.model.CustomerAddress;
 import com.lmp.model.CustomerBillingInfo;
 import com.lmp.model.CustomerOrder;
+import com.lmp.model.CustomerOrderDetail;
 import com.lmp.model.Payment;
 import com.lmp.service.CustomerOrderService;
 import com.lmp.service.CustomerService;
@@ -83,5 +84,11 @@ public class TestClient {
         System.out.println("getPayment(1) - after status update: " + customerOrderService.getPayment(1));
 
         System.out.println("getPaymentsByOrderId(1): " + customerOrderService.getPaymentsByOrderId(1));
+
+        CustomerOrderDetail customerOrderDetail1 = new CustomerOrderDetail(1, 3);
+        customerOrderService.addCustomerOrderDetail(customerOrderDetail1);
+
+        System.out.println("getCustomerOrderDetail(2): " + customerOrderService.getCustomerOrderDetail(2));
+        System.out.println("getCustomerOrderDetailsByOrderId(1): "  + customerOrderService.getCustomerOrderDetailsByOrderId(1));
     }
 }

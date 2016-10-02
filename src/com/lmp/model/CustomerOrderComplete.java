@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 /**
  * Class represents a more detailed customer order, like what they would see on order confirmation screen.
  */
-public class CustomerOrderDetailed {
+public class CustomerOrderComplete {
 
     private int id;
     private BigDecimal orderTotal;
@@ -33,7 +33,7 @@ public class CustomerOrderDetailed {
     private String shippingPostalCode;
     private String shippingCountry;
 
-    public CustomerOrderDetailed(int id, BigDecimal orderTotal, String orderStatus, String trackingId, int customerId, int billingInfoId, int shippingInfoId, Timestamp createdOn, Timestamp updatedOn, String billingAddressLine1, String billingAddressLine2, String billingCity, String billingState, String billingPostalCode, String billingCountry, String shippingAddressLine1, String shippingAddressLine2, String shippingCity, String shippingState, String shippingPostalCode, String shippingCountry) {
+    public CustomerOrderComplete(int id, BigDecimal orderTotal, String orderStatus, String trackingId, int customerId, int billingInfoId, int shippingInfoId, Timestamp createdOn, Timestamp updatedOn, String billingAddressLine1, String billingAddressLine2, String billingCity, String billingState, String billingPostalCode, String billingCountry, String shippingAddressLine1, String shippingAddressLine2, String shippingCity, String shippingState, String shippingPostalCode, String shippingCountry) {
         this.id = id;
         this.orderTotal = orderTotal;
         this.orderStatus = orderStatus;
@@ -60,9 +60,9 @@ public class CustomerOrderDetailed {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof CustomerOrderDetailed)) return false;
+        if (!(o instanceof CustomerOrderComplete)) return false;
 
-        CustomerOrderDetailed that = (CustomerOrderDetailed) o;
+        CustomerOrderComplete that = (CustomerOrderComplete) o;
 
         if (id != that.id) return false;
         if (customerId != that.customerId) return false;
@@ -124,7 +124,7 @@ public class CustomerOrderDetailed {
 
     @Override
     public String toString() {
-        return "CustomerOrderDetailed{" +
+        return "CustomerOrderComplete{" +
                 "id=" + id +
                 ", orderTotal=" + orderTotal +
                 ", orderStatus='" + orderStatus + '\'' +
