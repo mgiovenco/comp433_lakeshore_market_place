@@ -74,6 +74,19 @@ public class Product {
 		this.picture = picture;
 	}
 
+	public Product(String i, String name, String description, boolean product_available, int category_id,
+			int partner_id, String picture) {
+		this.vendor_product_id = i;
+		this.name = name;
+		this.description = description;
+		this.product_available = product_available;
+		this.category_id = category_id;
+		this.partner_id = partner_id;
+		this.picture = picture;	
+		}
+
+	
+
 	/**
 	 * @param id
 	 *            the id to set
