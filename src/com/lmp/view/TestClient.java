@@ -8,8 +8,10 @@ import com.lmp.model.CustomerBillingInfo;
 import com.lmp.model.CustomerOrder;
 import com.lmp.model.CustomerOrderDetail;
 import com.lmp.model.Payment;
+import com.lmp.model.Product;
 import com.lmp.service.CustomerOrderService;
 import com.lmp.service.CustomerService;
+import com.lmp.service.ProductService;
 
 import java.math.BigDecimal;
 
@@ -69,7 +71,9 @@ public class TestClient {
         System.out.println("getDetailedCustomerOrder(1): " + customerOrderService.getDetailedCustomerOrder(1));
 
         System.out.println("getCustomerOrderStatus(1): " + customerOrderService.getCustomerOrderStatus(1));
-
+        
+        //Product product = new Product(1, 1234, "ProductTest", "veryCool", true, 1, 1, "picture");
+        //ProductService.createProduct(product);
 
         CustomerOrder customerOrder2 = new CustomerOrder(1, BigDecimal.valueOf(88.88), "SHIPPED", "2222", 2, 2, 2);
         customerOrderService.updateCustomerOrder(customerOrder2);
