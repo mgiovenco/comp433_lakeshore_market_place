@@ -14,67 +14,65 @@ import java.util.List;
  *
  */
 public class ProductService {
-	
-	 private ProductDao productDao;
 
-	    public ProductService(ProductDao productDao) {
-	        this.productDao=productDao;
-	    }
+	private ProductDao productDao;
 
-	    /**
-	     * Get a product by id.
-	     *
-	     * @param id
-	     * @return
-	     * @throws SQLException
-	     */
-	    public Product getProduct(int id) throws SQLException {
-	        return productDao.selectProduct(id);
-	    }
+	public ProductService(ProductDao productDao) {
+		this.productDao = productDao;
+	}
 
+	/**
+	 * Get a product by id.
+	 *
+	 * @param id
+	 * @return
+	 * @throws SQLException
+	 */
+	public Product getProduct(int id) throws SQLException {
+		return productDao.selectProduct(id);
+	}
 
-	    /**
-	     * List all the available products.
-	     *
-	     * @return
-	     * @throws SQLException
-	     */
-	    public List<Product> selectAllProducts() throws SQLException {
-	        return productDao.selectAllProducts();
-	    }
-	    
-	    /**
-	     * Add one product.
-	     *
-	     * @param product
-	     * @throws Exception
-	     */
-	    public void createProduct(Product product) throws Exception {
-	        productDao.createProduct(product);
-	    }
-	    
-	    
-	    /**
-	     * Update a single product.
-	     *
-	     * @param product
-	     */
-	    public void updateProduct(Product product) {
-	        productDao.updateProduct(product);
-	    }
-	    
-	    public void updateProductAvilability(int id, boolean status) {
-	    productDao.updateProductAvilability(id, status);
-	    }
-	    
-	    /**
-	     * Select all products belong to one category.
-	     *
-	     * @param product
-	     */
-	    public List<Product> selectProductsByCategoryId(int id) throws SQLException {
-	    	return productDao.selectProductsByCategoryId(id);
-	    	
-	    }
+	/**
+	 * List all the available products.
+	 *
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<Product> selectAllProducts() throws SQLException {
+		return productDao.selectAllProducts();
+	}
+
+	/**
+	 * Add one product.
+	 *
+	 * @param product
+	 * @throws Exception
+	 */
+	public void createProduct(Product product) throws Exception {
+		productDao.createProduct(product);
+	}
+
+	/**
+	 * Update a single product.
+	 *
+	 * @param product
+	 */
+	public void updateProduct(Product product) {
+		productDao.updateProduct(product);
+	}
+
+	public void updateProductAvilability(int id, boolean status) {
+		productDao.updateProductAvilability(id, status);
+	}
+
+	/**
+	 * Select all products belong to one category.
+	 *
+	 * @param product
+	 */
+	public List<Product> selectProductsByCategoryId(int id) throws SQLException {
+		return productDao.selectProductsByCategoryId(id);
+
+	}
 
 }

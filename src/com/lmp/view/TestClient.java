@@ -2,6 +2,7 @@ package com.lmp.view;
 
 import com.lmp.dao.CustomerDao;
 import com.lmp.dao.CustomerOrderDao;
+import com.lmp.dao.ProductDao;
 import com.lmp.model.Customer;
 import com.lmp.model.CustomerAddress;
 import com.lmp.model.CustomerBillingInfo;
@@ -71,9 +72,7 @@ public class TestClient {
         System.out.println("getDetailedCustomerOrder(1): " + customerOrderService.getDetailedCustomerOrder(1));
 
         System.out.println("getCustomerOrderStatus(1): " + customerOrderService.getCustomerOrderStatus(1));
-        
-        //Product product = new Product(1, 1234, "ProductTest", "veryCool", true, 1, 1, "picture");
-        //ProductService.createProduct(product);
+     
 
         CustomerOrder customerOrder2 = new CustomerOrder(1, BigDecimal.valueOf(88.88), "SHIPPED", "2222", 2, 2, 2);
         customerOrderService.updateCustomerOrder(customerOrder2);
@@ -94,5 +93,18 @@ public class TestClient {
 
         System.out.println("getCustomerOrderDetail(2): " + customerOrderService.getCustomerOrderDetail(2));
         System.out.println("getCustomerOrderDetailsByOrderId(1): "  + customerOrderService.getCustomerOrderDetailsByOrderId(1));
+        
+        
+  //Start of the Product test
+        
+        System.out.println("###Product Test###");       
+        ProductService productService = new ProductService(new ProductDao());
+
+       // Product productTest = new Product(1, 1234, "ProductTest", "veryCool", true, 1, 1, "picture");
+        //productService.createProduct(productTest);
+        
+        System.out.println("Select productTest by id: " + productService.getProduct(4));
+       
+  //End of product test
     }
 }

@@ -3,73 +3,57 @@
  */
 package com.lmp.model;
 
-
 /**
  * @author Hattan
  *
  */
 public class Product {
-	
-	  private int id;
-	  private int vendor_product_id;
-	  private String name;  
-	  private String description;  
-	  private boolean product_available;
-	  private int category_id; 
-	  private int partner_id ; 
-	  private String picture ;
-	  
-	  
-	  
-	  
+
+	private int id;
+	private int vendor_product_id;
+	private String name;
+	private String description;
+	private boolean product_available;
+	private int category_id;
+	private int partner_id;
+	private String picture;
+
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public int getVendor_product_id() {
 		return vendor_product_id;
 	}
-	public void setVendor_product_id(int vendor_product_id) {
-		this.vendor_product_id = vendor_product_id;
-	}
+
+	
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
+
+	
 	public String getDescription() {
 		return description;
 	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
+
+
 	public boolean isProduct_available() {
 		return product_available;
 	}
-	public void setProduct_available(boolean product_available) {
-		this.product_available = product_available;
-	}
+
 	public int getCategory_id() {
 		return category_id;
 	}
-	public void setCategory_id(int category_id) {
-		this.category_id = category_id;
-	}
+
 	public int getPartner_id() {
 		return partner_id;
 	}
-	public void setPartner_id(int partner_id) {
-		this.partner_id = partner_id;
-	}
+
+	
 	public String getPicture() {
 		return picture;
 	}
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
+
 	/**
 	 * @param id
 	 * @param vendor_product_id
@@ -80,7 +64,7 @@ public class Product {
 	 * @param partner_id
 	 * @param picture
 	 */
-	
+
 	public Product(int id, int vendor_product_id, String name, String description, boolean product_available,
 			int category_id, int partner_id, String picture) {
 		super();
@@ -94,8 +78,6 @@ public class Product {
 		this.picture = picture;
 	}
 
-	
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -110,7 +92,10 @@ public class Product {
 		result = prime * result + vendor_product_id;
 		return result;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -163,26 +148,13 @@ public class Product {
 		}
 		return true;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", vendor_product_id=" + vendor_product_id
-				+", name=" + name + ", description="
-				+ description + ", product_available=" 
-				+ product_available + ", category_id=" + category_id
+		return "Product [id=" + id + ", vendor_product_id=" + vendor_product_id + ", name=" + name + ", description="
+				+ description + ", product_available=" + product_available + ", category_id=" + category_id
 				+ ", partner_id=" + partner_id + ", picture=" + picture + "]";
-		
-		
+
 	}
-	 
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
