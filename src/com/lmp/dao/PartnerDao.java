@@ -63,7 +63,7 @@ public class PartnerDao {
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-                partnerList.add(new Partner(resultSet.getInt("id"), resultSet.getString("company_name"), resultSet.getString("adress"), resultSet.getString("city"), resultSet.getString("state"), resultSet.getString("postal_code"), resultSet.getString("country"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getString("URL"), resultSet.getString("payment_methods"), resultSet.getString("type"), resultSet.getString("current_order"), resultSet.getString("logo"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on")));
+                partnerList.add(new Partner(resultSet.getInt("id"), resultSet.getString("company_name"), resultSet.getString("adress"), resultSet.getString("city"), resultSet.getString("state"), resultSet.getString("postal_code"), resultSet.getString("country"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getString("URL"), resultSet.getString("logo"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on")));
             }
 
         } catch (SQLException e) {
