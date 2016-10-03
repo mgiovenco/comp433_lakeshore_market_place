@@ -3,6 +3,7 @@ package com.lmp.view;
 import com.lmp.dao.CustomerDao;
 import com.lmp.dao.CustomerOrderDao;
 import com.lmp.dao.ProductDao;
+import com.lmp.dao.PartnerDao;
 import com.lmp.model.Customer;
 import com.lmp.model.CustomerAddress;
 import com.lmp.model.CustomerBillingInfo;
@@ -10,9 +11,11 @@ import com.lmp.model.CustomerOrder;
 import com.lmp.model.CustomerOrderDetail;
 import com.lmp.model.Payment;
 import com.lmp.model.Product;
+import com.lmp.model.Partner;
 import com.lmp.service.CustomerOrderService;
 import com.lmp.service.CustomerService;
 import com.lmp.service.ProductService;
+import com.lmp.service.PartnerService;
 
 import java.math.BigDecimal;
 
@@ -111,5 +114,20 @@ public class TestClient {
 
        
   //End of product test
+  
+  //Partner test started
+        
+        System.out.println("###Partner Test###");       
+        PartnerService partnerService = new PartnerService(new PartnerDao());
+
+        Partner partnerTest = new Partner(1, "Myco", "6331 N Kenmore Ave", "Chicago", "IL", "60660", "USA", "800-556-8876", "abc@xyz.com", "http://www.xyz.com/", true);
+        partnerService.createPartner(partnerTest);
+        
+        System.out.println("Select partnerTest by id: " + partnerService.getPartner(1));
+        
+        System.out.println("select All Partners: " + partnerService.selectAllPartner());
+        
+     
+  //End of partner test
     }
 }
