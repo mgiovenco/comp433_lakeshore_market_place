@@ -191,7 +191,7 @@ public class Partner {
                 ", adress='" + adress + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
-                ", postal_code='" + postal_-code + '\'' +
+                ", postal_code='" + postal_code + '\'' +
                 ", country='" + country + '\'' +
                 ", phone='" + phone + '\'' +
                 ", URL='" + URL + '\'' +
