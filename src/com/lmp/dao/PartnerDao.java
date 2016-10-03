@@ -16,10 +16,10 @@ import java.util.List;
 */
 
 public class PartnerDao {
-private static final String SELECT_PARTNER = "SELECT id, company_name, adress, city, state, postal_code, country, phone, URL, payment_methods, type, current_order, logo, active, created_on, updated_on from partner where id = ?";
-private static final String SELECT_ALL_PARTNERS = "SELECT id, company_name, adress, city, state, postal_code, country, phone, URL, payment_methods, type, current_order, logo, active, created_on, updated_on from partner";
-private static final String INSERT_PARTNER = "INSERT into partner (company_name, adress, city, state, postal_code, country, phone, URL, payment_methods, type, current_order, logo, active, created_on) values (?, ?, ?, ?, ?, ?)";
-private static final String UPDATE_PARTNER = "UPDATE partner set company_name = ?, adress = ?, city= ?, state= ?, postal_code= ?, country= ?, phone= ?, URL= ?, payment_methods= ?, type= ?, current_order= ?, logo, = ?, email = ?, active = ?, updated_on = ? where id = ?";
+private static final String SELECT_PARTNER = "SELECT id, company_name, adress, city, state, postal_code, country, phone, email, URL, payment_methods, type, current_order, logo, active, created_on, updated_on from partner where id = ?";
+private static final String SELECT_ALL_PARTNERS = "SELECT id, company_name, adress, city, state, postal_code, country, phone, email, URL, payment_methods, type, current_order, logo, active, created_on, updated_on from partner";
+private static final String INSERT_PARTNER = "INSERT into partner (company_name, adress, city, state, postal_code, country, phone, email, URL, payment_methods, type, current_order, logo, active, created_on) values (?, ?, ?, ?, ?, ?)";
+private static final String UPDATE_PARTNER = "UPDATE partner set company_name = ?, adress = ?, city= ?, state= ?, postal_code= ?, country= ?, phone= ?, email= ?, URL= ?, payment_methods= ?, type= ?, current_order= ?, logo, = ?, email = ?, active = ?, updated_on = ? where id = ?";
 private static final String INACTIVATE_PARTNER = "UPDATE partner set active = ?, updated_on = ? where id = ?";
 
 /**
@@ -39,7 +39,7 @@ ResultSet resultSet = ps.executeQuery();
 
     while (resultSet.next()) {
 
-partner = new Partner(resultSet.getInt("id"), resultSet.getString("company_name"), resultSet.getString("adress"), resultSet.getString("city"), resultSet.getString("state"), resultSet.getString("postal_code"), resultSet.getString("country"), resultSet.getString("phone"), resultSet.getString("URL"), resultSet.getString("payment_methods"), resultSet.getString("type"), resultSet.getString("current_order"), resultSet.getString("logo"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on"));
+partner = new Partner(resultSet.getInt("id"), resultSet.getString("company_name"), resultSet.getString("adress"), resultSet.getString("city"), resultSet.getString("state"), resultSet.getString("postal_code"), resultSet.getString("country"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getString("URL"), resultSet.getString("payment_methods"), resultSet.getString("type"), resultSet.getString("current_order"), resultSet.getString("logo"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on"));
 
 }
 
@@ -70,7 +70,7 @@ ResultSet resultSet = ps.executeQuery();
 
 while (resultSet.next()) {
 
-partnerList.add(new Partner(resultSet.getInt("id"), resultSet.getString("company_name"), resultSet.getString("adress"), resultSet.getString("city"), resultSet.getString("state"), resultSet.getString("postal_code"), resultSet.getString("country"), resultSet.getString("phone"), resultSet.getString("URL"), resultSet.getString("payment_methods"), resultSet.getString("type"), resultSet.getString("current_order"), resultSet.getString("logo"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on")));
+partnerList.add(new Partner(resultSet.getInt("id"), resultSet.getString("company_name"), resultSet.getString("adress"), resultSet.getString("city"), resultSet.getString("state"), resultSet.getString("postal_code"), resultSet.getString("country"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getString("URL"), resultSet.getString("payment_methods"), resultSet.getString("type"), resultSet.getString("current_order"), resultSet.getString("logo"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on")));
 
 }
 
@@ -107,13 +107,14 @@ ps.setString(4, partner.getState ));
 ps.setString(5, partner.getPostal_code());
 ps.setString(6, partner.getCountry());
 ps.setString(7, partner.getPhone());
-ps.setString(8, partner.getURL());
-ps.setString(9, partner.getPayment_methods());
-ps.setString(10, partner.getType());
-ps.setString(11, partner.getCurrent_order());
-ps.setString(12, partner.getLogo());
-ps.setBoolean(13, partner.isActive());
-ps.setTimestamp(14, new Timestamp(new java.util.Date().getTime()));
+ps.setString(8, partner.getEmail());
+ps.setString(9, partner.getURL());
+ps.setString(10, partner.getPayment_methods());
+ps.setString(11, partner.getType());
+ps.setString(12, partner.getCurrent_order());
+ps.setString(13, partner.getLogo());
+ps.setBoolean(14, partner.isActive());
+ps.setTimestamp(15, new Timestamp(new java.util.Date().getTime()));
 
 int result = ps.executeUpdate();
 
@@ -168,14 +169,14 @@ ps.setString(4, partner.getState ));
 ps.setString(5, partner.getPostal_code());
 ps.setString(6, partner.getCountry());
 ps.setString(7, partner.getPhone());
-ps.setString(8, partner.getURL());
-ps.setString(9, partner.getPayment_methods());
-ps.setString(10, partner.getType());
-ps.setString(11, partner.getCurrent_order());
-ps.setString(12, partner.getLogo());
-ps.setBoolean(13, partner.isActive());
-ps.setTimestamp(14, new Timestamp(new java.util.Date().getTime()));
-ps.setInt(15, partner.getId());
+ps.setString(8, partner.getEmail());
+ps.setString(9, partner.getURL());
+ps.setString(10, partner.getPayment_methods());
+ps.setString(11, partner.getType());
+ps.setString(12, partner.getCurrent_order());
+ps.setString(13, partner.getLogo());
+ps.setBoolean(14, partner.isActive());
+ps.setTimestamp(15, new Timestamp(new java.util.Date().getTime()));
 int result = ps.executeUpdate();
 
 if (result == 0) {
@@ -209,12 +210,14 @@ if (result == 0) {
 
 System.out.println("No partner found for partner id: " + id);
 
-}
+  }
 
-} catch (SQLException e) {
+} 
+  
+  catch (SQLException e) {
 
 System.out.println("SQLException: " + e);
 
-}
+  }
 
 }
