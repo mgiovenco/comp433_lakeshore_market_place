@@ -97,9 +97,9 @@ public class PartnerDao {
                 ps.setString(7, partner.getPhone());
                 ps.setString(8, partner.getEmail());
                 ps.setString(9, partner.getURL());
-                ps.setString(13, partner.getLogo());
-                ps.setBoolean(14, partner.isActive());
-                ps.setTimestamp(15, new Timestamp(new java.util.Date().getTime()));
+                ps.setString(10, partner.getLogo());
+                ps.setBoolean(11, partner.isActive());
+                ps.setTimestamp(12, new Timestamp(new java.util.Date().getTime()));
 
                 int result = ps.executeUpdate();
 
@@ -138,9 +138,9 @@ public class PartnerDao {
             ps.setString(7, partner.getPhone());
             ps.setString(8, partner.getEmail());
             ps.setString(9, partner.getURL());
-            ps.setString(13, partner.getLogo());
-            ps.setBoolean(14, partner.isActive());
-            ps.setTimestamp(15, new Timestamp(new java.util.Date().getTime()));
+            ps.setString(10, partner.getLogo());
+            ps.setBoolean(11, partner.isActive());
+            ps.setTimestamp(12, new Timestamp(new java.util.Date().getTime()));
             int result = ps.executeUpdate();
 
             if (result == 0) {
