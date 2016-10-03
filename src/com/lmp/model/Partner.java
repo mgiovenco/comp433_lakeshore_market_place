@@ -8,16 +8,20 @@ import java.sql.Timestamp;
 
 public class Partner {
 
-    private int Id;
-    private String PartnerName;
-    private String addressLine1;
+    private int id;
+    private String company_name;
+    private String adress;
     private String addressLine2;
     private String city;
     private String state;
-    private String postalCode;
+    private String postal_code;
     private String country;
     private String phone;
-    private String email;
+    private String URL;
+    private String payment_methods;
+    private String type;
+    private String current_order;
+    private String logo;
     private boolean active;
     private Timestamp createdOn;
     private Timestamp updatedOn;
