@@ -19,7 +19,7 @@ public class TestClient4Partner {
         partnerService.addPartner(partner1);
         System.out.println("listPartners - after new partner add: " + partnerService.listPartners());
 
-        Partner partner2 = new Partner(1, “MYCO2", "6332 N Kenmore Ave", "Chicago", "IL", “60660”, “USA”, ”xyz@xyz.com”, ”xyz.com”, ”Cash”, true);
+        Partner partner2 = new Partner(1, “MYCOM", "6332 N Kenmore Ave", "Chicago", "IL", “60660”, “USA”, ”xyz@xyz.com”, ”xyz.com”, ”Cash”, true);
         partnerService.updatePartner(partner2);
         System.out.println("listPartners - after update: " + partnerService.listPartners());
 
