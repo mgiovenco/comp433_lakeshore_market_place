@@ -155,7 +155,7 @@ throw new Exception("Cannot insert null partner object");
 
 
 
-public void updateCustomer(Partner partner) {
+public void updatePartner(Partner partner) {
 
 try {
 
