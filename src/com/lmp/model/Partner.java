@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 /**
  * This class represents Partner information.
  */
-
 public class Partner {
 
     private int id;
@@ -35,11 +34,11 @@ public class Partner {
         this.country = country;
         this.phone = phone;
         this.email = email;
-    	this.URL = URL;
-    	this.payment_methods = payment_methods;
-    	this.type = type;
-    	this.current_order = current_order;
-    	this.logo = logo;
+        this.URL = URL;
+        this.payment_methods = payment_methods;
+        this.type = type;
+        this.current_order = current_order;
+        this.logo = logo;
         this.active = active;
     }
 
@@ -53,11 +52,11 @@ public class Partner {
         this.country = country;
         this.phone = phone;
         this.email = email;
-    	this.URL = URL;
-    	this.payment_methods = payment_methods;
-    	this.type = type;
-    	this.current_order = current_order;
-    	this.logo = logo;
+        this.URL = URL;
+        this.payment_methods = payment_methods;
+        this.type = type;
+        this.current_order = current_order;
+        this.logo = logo;
         this.active = active;
     }
 
@@ -71,18 +70,18 @@ public class Partner {
         this.country = country;
         this.phone = phone;
         this.email = email;
-    	this.URL = URL;
-    	this.payment_methods = payment_methods;
-    	this.type = type;
-    	this.current_order = current_order;
-    	this.logo = logo;
+        this.URL = URL;
+        this.payment_methods = payment_methods;
+        this.type = type;
+        this.current_order = current_order;
+        this.logo = logo;
         this.active = active;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public String getCompany_name() {
@@ -108,9 +107,11 @@ public class Partner {
     public String getCountry() {
         return country;
     }
+
     public String getPhone() {
         return phone;
     }
+
     public String getEmail() {
         return email;
     }
@@ -122,15 +123,19 @@ public class Partner {
     public String getPayment_methods() {
         return payment_methods;
     }
+
     public String getType() {
         return type;
     }
+
     public String getCurrent_order() {
         return current_order;
     }
+
     public String getLogo() {
         return logo;
     }
+
     public boolean isActive() {
         return active;
     }
@@ -152,20 +157,26 @@ public class Partner {
 
         if (getId() != partner.getId()) return false;
         if (isActive() != partner.isActive()) return false;
-        if (getCompany_name() != null ? !getCompany_name().equals(partner.getCompany_name()) : partner.getCompany_name() != null) return false;
+        if (getCompany_name() != null ? !getCompany_name().equals(partner.getCompany_name()) : partner.getCompany_name() != null)
+            return false;
         if (getAdress() != null ? !getAdress().equals(partner.getAdress()) : partner.getAdress() != null) return false;
         if (getCity() != null ? !getCity().equals(partner.getCity()) : partner.getCity() != null) return false;
         if (getState() != null ? !getState().equals(partner.getState()) : partner.getState() != null) return false;
-        if (getPostal_code() != null ? !getPostal_code().equals(partner.getPostal_code()) : partner.getPostal_code() != null) return false;
-        if (getCountry() != null ? !getCountry().equals(partner.getCountry()) : partner.getCountry() != null) return false;
+        if (getPostal_code() != null ? !getPostal_code().equals(partner.getPostal_code()) : partner.getPostal_code() != null)
+            return false;
+        if (getCountry() != null ? !getCountry().equals(partner.getCountry()) : partner.getCountry() != null)
+            return false;
         if (getPhone() != null ? !getPhone().equals(partner.getPhone()) : partner.getPhone() != null) return false;
         if (getEmail() != null ? !getEmail().equals(partner.getEmail()) : partner.getEmail() != null) return false;
         if (getURL() != null ? !getURL().equals(partner.getURL()) : partner.getURL() != null) return false;
-        if (getPayment_methods() != null ? !getPayment_methods().equals(partner.getPayment_methods()) : partner.getPayment_methods() != null) return false;
+        if (getPayment_methods() != null ? !getPayment_methods().equals(partner.getPayment_methods()) : partner.getPayment_methods() != null)
+            return false;
         if (getType() != null ? !getType().equals(partner.getType()) : partner.getType() != null) return false;
-        if (getCurrent_order() != null ? !getCurrent_order().equals(partner.getCurrent_order()) : partner.getCurrent_order() != null) return false;
+        if (getCurrent_order() != null ? !getCurrent_order().equals(partner.getCurrent_order()) : partner.getCurrent_order() != null)
+            return false;
         if (getLogo() != null ? !getLogo().equals(partner.getLogo()) : partner.getLogo() != null) return false;
-        if (getCreatedOn() != null ? !getCreatedOn().equals(partner.getCreatedOn()) : partner.getCreatedOn() != null) return false;
+        if (getCreatedOn() != null ? !getCreatedOn().equals(partner.getCreatedOn()) : partner.getCreatedOn() != null)
+            return false;
         return getUpdatedOn() != null ? getUpdatedOn().equals(partner.getUpdatedOn()) : partner.getUpdatedOn() == null;
 
     }
