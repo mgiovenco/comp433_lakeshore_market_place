@@ -17,8 +17,7 @@ public class PartnerService {
     }
 
     /**
-     * Get partner by id.
-     *
+     * Get partner by ID
      * @param id
      * @return
      * @throws SQLException
@@ -28,8 +27,7 @@ public class PartnerService {
     }
 
     /**
-     * List all partners.
-     *
+     * List all partners
      * @return
      * @throws SQLException
      */
@@ -38,8 +36,7 @@ public class PartnerService {
     }
 
     /**
-     * Add single partner.
-     *
+     * Add a partner
      * @param partner
      * @throws Exception
      */
@@ -48,8 +45,7 @@ public class PartnerService {
     }
 
     /**
-     * Update single partner.
-     *
+     * Update a partner
      * @param partner
      */
     public void updatePartner(Partner partner) {
@@ -57,8 +53,7 @@ public class PartnerService {
     }
 
     /**
-     * Soft delete single partner.
-     *
+     * Delete a partner.
      * @param id
      */
     public void deletePartner(int id) {
