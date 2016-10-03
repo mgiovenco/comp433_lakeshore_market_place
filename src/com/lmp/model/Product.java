@@ -10,7 +10,7 @@ package com.lmp.model;
 public class Product {
 
 	private int id;
-	private int vendor_product_id;
+	private String vendor_product_id;
 	private String name;
 	private String description;
 	private boolean product_available;
@@ -22,20 +22,17 @@ public class Product {
 		return id;
 	}
 
-	public int getVendor_product_id() {
+	public String getVendor_product_id() {
 		return vendor_product_id;
 	}
 
-	
 	public String getName() {
 		return name;
 	}
 
-	
 	public String getDescription() {
 		return description;
 	}
-
 
 	public boolean isProduct_available() {
 		return product_available;
@@ -49,14 +46,13 @@ public class Product {
 		return partner_id;
 	}
 
-	
 	public String getPicture() {
 		return picture;
 	}
 
 	/**
 	 * @param id
-	 * @param vendor_product_id
+	 * @param i
 	 * @param name
 	 * @param description
 	 * @param product_available
@@ -65,11 +61,11 @@ public class Product {
 	 * @param picture
 	 */
 
-	public Product(int id, int vendor_product_id, String name, String description, boolean product_available,
-			int category_id, int partner_id, String picture) {
+	public Product(int id, String i, String name, String description, boolean product_available, int category_id,
+			int partner_id, String picture) {
 		super();
 		this.id = id;
-		this.vendor_product_id = vendor_product_id;
+		this.vendor_product_id = i;
 		this.name = name;
 		this.description = description;
 		this.product_available = product_available;
@@ -78,6 +74,75 @@ public class Product {
 		this.picture = picture;
 	}
 
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * @param vendor_product_id
+	 *            the vendor_product_id to set
+	 */
+	public void setVendor_product_id(String vendor_product_id) {
+		this.vendor_product_id = vendor_product_id;
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @param description
+	 *            the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	/**
+	 * @param product_available
+	 *            the product_available to set
+	 */
+	public void setProduct_available(boolean product_available) {
+		this.product_available = product_available;
+	}
+
+	/**
+	 * @param category_id
+	 *            the category_id to set
+	 */
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id;
+	}
+
+	/**
+	 * @param partner_id
+	 *            the partner_id to set
+	 */
+	public void setPartner_id(int partner_id) {
+		this.partner_id = partner_id;
+	}
+
+	/**
+	 * @param picture
+	 *            the picture to set
+	 */
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -89,7 +154,7 @@ public class Product {
 		result = prime * result + partner_id;
 		result = prime * result + ((picture == null) ? 0 : picture.hashCode());
 		result = prime * result + (product_available ? 1231 : 1237);
-		result = prime * result + vendor_product_id;
+		result = prime * result + ((vendor_product_id == null) ? 0 : vendor_product_id.hashCode());
 		return result;
 	}
 
@@ -143,7 +208,11 @@ public class Product {
 		if (product_available != other.product_available) {
 			return false;
 		}
-		if (vendor_product_id != other.vendor_product_id) {
+		if (vendor_product_id == null) {
+			if (other.vendor_product_id != null) {
+				return false;
+			}
+		} else if (!vendor_product_id.equals(other.vendor_product_id)) {
 			return false;
 		}
 		return true;

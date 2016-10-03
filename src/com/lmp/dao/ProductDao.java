@@ -41,7 +41,7 @@ public class ProductDao {
 			ResultSet resultSet = ps.executeQuery();
 
 			while (resultSet.next()) {
-				product = new Product(resultSet.getInt("id"), resultSet.getInt("vendor_product_id"),
+				product = new Product(resultSet.getInt("id"), resultSet.getString("vendor_product_id"),
 						resultSet.getString("name"), resultSet.getString("description"),
 						resultSet.getBoolean("product_available"), resultSet.getInt("category_id"),
 						resultSet.getInt("partner_id"), resultSet.getString("picture"));
@@ -68,13 +68,13 @@ public class ProductDao {
 			ResultSet resultSet = ps.executeQuery();
 
 			while (resultSet.next()) {
-				productList.add(new Product(resultSet.getInt("id"), resultSet.getInt("vendor_product_id"),
+				productList.add(new Product(resultSet.getInt("id"), resultSet.getString("vendor_product_id"),
 						resultSet.getString("name"), resultSet.getString("description"),
 						resultSet.getBoolean("product_available"), resultSet.getInt("category_id"),
 						resultSet.getInt("partner_id"), resultSet.getString("picture")));
 			}
 		} catch (SQLException e) {
-			System.out.println("SQLException: " + e);
+			System.out.println("SQLException:" + e);
 		}
 
 		return productList;
@@ -90,7 +90,7 @@ public class ProductDao {
 			try {
 				Connection conn = DBHelper.getconnection();
 				PreparedStatement ps = conn.prepareStatement(INSERT_PRODUCT, Statement.RETURN_GENERATED_KEYS);
-				ps.setInt(1, product.getVendor_product_id());
+				ps.setString(1,product.getVendor_product_id());
 				ps.setString(2, product.getName());
 				ps.setString(3, product.getDescription());
 				ps.setBoolean(4, product.isProduct_available());
@@ -131,7 +131,7 @@ public class ProductDao {
 			Connection conn = DBHelper.getconnection();
 			PreparedStatement ps = conn.prepareStatement(UPDATE_PRODUCT);
 
-			ps.setInt(1, product.getVendor_product_id());
+			ps.setString(1, product.getVendor_product_id());
 			ps.setString(2, product.getName());
 			ps.setString(3, product.getDescription());
 			ps.setBoolean(4, product.isProduct_available());
@@ -155,7 +155,7 @@ public class ProductDao {
 	 * product_available = ? where id = ?";
 	 */
 
-	public void updateProductAvilability(int id, boolean status) {
+	public void updateProductAvailability(int id, boolean status) {
 		try {
 			Connection conn = DBHelper.getconnection();
 			PreparedStatement ps = conn.prepareStatement(UNAVILABLE_PRODUCT);
@@ -191,7 +191,7 @@ public class ProductDao {
 			ResultSet resultSet = ps.executeQuery();
 
 			while (resultSet.next()) {
-				productByCategoryList.add(new Product(resultSet.getInt("id"), resultSet.getInt("vendor_product_id"),
+				productByCategoryList.add(new Product(resultSet.getInt("id"), resultSet.getString("vendor_product_id"),
 						resultSet.getString("name"), resultSet.getString("description"),
 						resultSet.getBoolean("product_available"), resultSet.getInt("category_id"),
 						resultSet.getInt("partner_id"), resultSet.getString("picture")));

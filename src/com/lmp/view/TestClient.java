@@ -95,15 +95,20 @@ public class TestClient {
         System.out.println("getCustomerOrderDetailsByOrderId(1): "  + customerOrderService.getCustomerOrderDetailsByOrderId(1));
         
         
+        
   //Start of the Product test
         
         System.out.println("###Product Test###");       
         ProductService productService = new ProductService(new ProductDao());
 
-       // Product productTest = new Product(1, 1234, "ProductTest", "veryCool", true, 1, 1, "picture");
-        //productService.createProduct(productTest);
+       Product productTest = new Product(1, "1234", "ProductTest", "veryCool", true, 1, 1, "picture");
+       productService.createProduct(productTest);
         
         System.out.println("Select productTest by id: " + productService.getProduct(4));
+        
+        System.out.println("select All Products: " + productService.selectAllProducts());
+        
+
        
   //End of product test
     }

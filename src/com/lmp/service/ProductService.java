@@ -61,8 +61,8 @@ public class ProductService {
 		productDao.updateProduct(product);
 	}
 
-	public void updateProductAvilability(int id, boolean status) {
-		productDao.updateProductAvilability(id, status);
+	public void updateProductAvailability(int id, boolean status) {
+		productDao.updateProductAvailability(id, status);
 	}
 
 	/**
