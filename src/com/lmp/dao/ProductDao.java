@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  * @author Hattan
- *id          
+ *         
  */
 public class ProductDao {
 	 	private static final String SELECT_PRODUCT = 
@@ -154,7 +154,7 @@ public class ProductDao {
 	    
 	    
 	    /**
-	     * UNAVILABLE_PRODUCT = 
+	     * update Product Availability UNAVILABLE_PRODUCT = 
 	     *"UPDATE product set product_available = ? where id = ?";
 	   	 */
 	    
