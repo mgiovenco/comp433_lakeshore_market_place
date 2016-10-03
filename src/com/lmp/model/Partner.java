@@ -16,6 +16,7 @@ public class Partner {
     private String postal_code;
     private String country;
     private String phone;
+    private String email;
     private String URL;
     private String payment_methods;
     private String type;
@@ -25,7 +26,7 @@ public class Partner {
     private Timestamp createdOn;
     private Timestamp updatedOn;
 
-    public Partner(String company_name, String adress, String city, String state, String postal_code, String country, String phone, String URL, String payment_methods, String type, String current_order, String logo, boolean active) {
+    public Partner(String company_name, String adress, String city, String state, String postal_code, String country, String phone, String email, String URL, String payment_methods, String type, String current_order, String logo, boolean active) {
         this.company_name = company_name;
         this.adress = adress;
         this.city = city;
@@ -33,6 +34,7 @@ public class Partner {
         this.postal_code = postal_code;
         this.country = country;
         this.phone = phone;
+        this.email = email;
     	this.URL = URL;
     	this.payment_methods = payment_methods;
     	this.type = type;
@@ -41,7 +43,7 @@ public class Partner {
         this.active = active;
     }
 
-    public Partner(int id, String company_name, String adress, String city, String state, String postal_code, String country, String phone, String URL, String payment_methods, String type, String current_order, String logo, boolean active) {
+    public Partner(int id, String company_name, String adress, String city, String state, String postal_code, String country, String phone, String email, String URL, String payment_methods, String type, String current_order, String logo, boolean active) {
         this.id = id;
         this.company_name = company_name;
         this.adress = adress;
@@ -50,6 +52,7 @@ public class Partner {
         this.postal_code = postal_code;
         this.country = country;
         this.phone = phone;
+        this.email = email;
     	this.URL = URL;
     	this.payment_methods = payment_methods;
     	this.type = type;
@@ -58,7 +61,7 @@ public class Partner {
         this.active = active;
     }
 
-    public Partner(int id, String company_name, String adress, String city, String state, String postal_code, String country, String phone, String URL, String payment_methods, String type, String current_order, String logo, boolean active, Timestamp createdOn, Timestamp updatedOn) {
+    public Partner(int id, String company_name, String adress, String city, String state, String postal_code, String country, String phone, String email, String URL, String payment_methods, String type, String current_order, String logo, boolean active, Timestamp createdOn, Timestamp updatedOn) {
         this.id = id;
         this.company_name = company_name;
         this.adress = adress;
@@ -67,6 +70,7 @@ public class Partner {
         this.postal_code = postal_code;
         this.country = country;
         this.phone = phone;
+        this.email = email;
     	this.URL = URL;
     	this.payment_methods = payment_methods;
     	this.type = type;
@@ -103,9 +107,12 @@ public class Partner {
 
     public String getCountry() {
         return country;
-
+    }
     public String getPhone() {
         return phone;
+    }
+    public String getEmail() {
+        return email;
     }
 
     public String getURL() {
@@ -152,6 +159,7 @@ public class Partner {
         if (getPostal_code() != null ? !getPostal_code().equals(partner.getPostal_code()) : partner.getPostal_code() != null) return false;
         if (getCountry() != null ? !getCountry().equals(partner.getCountry()) : partner.getCountry() != null) return false;
         if (getPhone() != null ? !getPhone().equals(partner.getPhone()) : partner.getPhone() != null) return false;
+        if (getEmail() != null ? !getEmail().equals(partner.getEmail()) : partner.getEmail() != null) return false;
         if (getURL() != null ? !getURL().equals(partner.getURL()) : partner.getURL() != null) return false;
         if (getPayment_methods() != null ? !getPayment_methods().equals(partner.getPayment_methods()) : partner.getPayment_methods() != null) return false;
         if (getType() != null ? !getType().equals(partner.getType()) : partner.getType() != null) return false;
@@ -172,6 +180,7 @@ public class Partner {
         result = 31 * result + (getPostal_code() != null ? getPostal_code().hashCode() : 0);
         result = 31 * result + (getCountry() != null ? getCountry().hashCode() : 0);
         result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
         result = 31 * result + (getURL() != null ? getURL().hashCode() : 0);
         result = 31 * result + (getPayment_methods() != null ? getPayment_methods().hashCode() : 0);
         result = 31 * result + (getType() != null ? getType().hashCode() : 0);
@@ -194,6 +203,7 @@ public class Partner {
                 ", postal_code='" + postal_code + '\'' +
                 ", country='" + country + '\'' +
                 ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
                 ", URL='" + URL + '\'' +
                 ", payment_methods='" + payment_methods + '\'' +
                 ", type='" + type + '\'' +
