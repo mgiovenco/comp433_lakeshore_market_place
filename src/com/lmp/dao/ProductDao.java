@@ -24,7 +24,7 @@ public class ProductDao {
 	private static final String UPDATE_PRODUCT = "UPDATE product set vendor_product_id = ?, name = ?, description = ?, product_available = ?, picture = ?, category_id = ?, partner_id = ? where id = ?";
 	private static final String UNAVILABLE_PRODUCT = "UPDATE product set product_available = ? where id = ?";
 
-	private static final String SELECT_PRODUCT_BY_CATEGORY = "id, vendor_product_id, name, description, product_available, picture, category_id, partner_id from product where category_id = ?";
+	private static final String SELECT_PRODUCT_BY_CATEGORY = "select id, vendor_product_id, name, description, product_available, picture, category_id, partner_id from product where category_id = ?";
 
 	/**
 	 * Select one product by id
