@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b93bcc7b-809f-403d-b923-7981225cb9a4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/comp433_lakeshore_market_place_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lmp/dao/ProductDao.java" afterPath="$PROJECT_DIR$/src/com/lmp/dao/ProductDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lmp/service/ProductService.java" afterPath="$PROJECT_DIR$/src/com/lmp/service/ProductService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/lmp/view/TestClient.java" afterPath="$PROJECT_DIR$/src/com/lmp/view/TestClient.java" />
     </list>
     <ignored path="comp433_lakeshore_market_place.iws" />
@@ -38,8 +34,8 @@
       <file leaf-file-name="TestClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/lmp/view/TestClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34237996">
-              <caret line="107" column="50" selection-start-line="107" selection-start-column="50" selection-end-line="107" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.697286">
+              <caret line="119" column="57" selection-start-line="119" selection-start-column="57" selection-end-line="119" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/lmp/service/ProductService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+              <caret line="72" column="51" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="51" />
               <folding>
                 <element signature="e#1039#1040#0" expanded="true" />
                 <element signature="e#1079#1080#0" expanded="true" />
@@ -159,14 +155,15 @@
       <file leaf-file-name="ProductDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/lmp/dao/ProductDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="21.814816">
-              <caret line="122" column="45" selection-start-line="122" selection-start-column="38" selection-end-line="122" selection-end-column="45" />
+            <state vertical-scroll-proportion="-7.703704">
+              <caret line="168" column="37" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="51" />
               <folding>
-                <marker date="1475544140000" expanded="true" signature="365:491" placeholder="SELECT id, v... product" />
-                <marker date="1475544140000" expanded="true" signature="549:662" placeholder="SELECT id, v... product" />
-                <marker date="1475544140000" expanded="true" signature="715:854" placeholder="INSERT into product... " />
-                <marker date="1475544140000" expanded="true" signature="907:1056" placeholder="UPDATE produ... " />
-                <marker date="1475544140000" expanded="true" signature="1113:1166" placeholder="UPDATE produ... " />
+                <marker date="1475544880000" expanded="true" signature="355:481" placeholder="SELECT id, v... product" />
+                <marker date="1475544880000" expanded="true" signature="539:652" placeholder="SELECT id, v... product" />
+                <marker date="1475544880000" expanded="true" signature="705:844" placeholder="INSERT into product... " />
+                <marker date="1475544880000" expanded="true" signature="897:1046" placeholder="UPDATE produ... " />
+                <marker date="1475544880000" expanded="true" signature="1103:1156" placeholder="UPDATE produ... " />
+                <marker date="1475544880000" expanded="true" signature="1222:1357" placeholder="SELECT id, v... product" />
               </folding>
             </state>
           </provider>
@@ -299,8 +296,8 @@
         <option value="$PROJECT_DIR$/src/com/lmp/service/PartnerService.java" />
         <option value="$PROJECT_DIR$/src/com/lmp/dao/PartnerDao.java" />
         <option value="$PROJECT_DIR$/src/com/lmp/model/Product.java" />
-        <option value="$PROJECT_DIR$/src/com/lmp/dao/ProductDao.java" />
         <option value="$PROJECT_DIR$/src/com/lmp/service/ProductService.java" />
+        <option value="$PROJECT_DIR$/src/com/lmp/dao/ProductDao.java" />
         <option value="$PROJECT_DIR$/src/com/lmp/view/TestClient.java" />
       </list>
     </option>
@@ -412,10 +409,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lmp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1037,12 +1030,12 @@
       <workItem from="1475527434715" duration="7000" />
       <workItem from="1475529464602" duration="64000" />
       <workItem from="1475529891979" duration="271000" />
-      <workItem from="1475531836070" duration="4938000" />
+      <workItem from="1475531836070" duration="5420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52760000" />
+    <option name="totallyTimeSpent" value="53242000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="831" extended-state="6" />
@@ -1544,21 +1537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lmp/dao/PartnerDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.925926">
-          <caret line="19" column="178" selection-start-line="19" selection-start-column="178" selection-end-line="19" selection-end-column="178" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1475542048000" expanded="true" signature="379:466" placeholder="SELECT id, c... partner" />
-            <marker date="1475542048000" expanded="true" signature="379:496" placeholder="SELECT id, c... partner" />
-            <marker date="1475542048000" expanded="true" signature="554:658" placeholder="SELECT id, c... partner" />
-            <marker date="1475542048000" expanded="true" signature="711:851" placeholder="INSERT into partner... " />
-            <marker date="1475542048000" expanded="true" signature="904:1049" placeholder="UPDATE partn... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lmp/model/Product.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1584,10 +1562,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lmp/dao/PartnerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="13.925926">
+          <caret line="19" column="178" selection-start-line="19" selection-start-column="178" selection-end-line="19" selection-end-column="178" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1475542048000" expanded="true" signature="379:466" placeholder="SELECT id, c... partner" />
+            <marker date="1475542048000" expanded="true" signature="379:496" placeholder="SELECT id, c... partner" />
+            <marker date="1475542048000" expanded="true" signature="554:658" placeholder="SELECT id, c... partner" />
+            <marker date="1475542048000" expanded="true" signature="711:851" placeholder="INSERT into partner... " />
+            <marker date="1475542048000" expanded="true" signature="904:1049" placeholder="UPDATE partn... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lmp/dao/ProductDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.703704">
+          <caret line="168" column="37" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="51" />
+          <folding>
+            <marker date="1475544880000" expanded="true" signature="355:481" placeholder="SELECT id, v... product" />
+            <marker date="1475544880000" expanded="true" signature="539:652" placeholder="SELECT id, v... product" />
+            <marker date="1475544880000" expanded="true" signature="705:844" placeholder="INSERT into product... " />
+            <marker date="1475544880000" expanded="true" signature="897:1046" placeholder="UPDATE produ... " />
+            <marker date="1475544880000" expanded="true" signature="1103:1156" placeholder="UPDATE produ... " />
+            <marker date="1475544880000" expanded="true" signature="1222:1357" placeholder="SELECT id, v... product" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lmp/service/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+          <caret line="72" column="51" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="51" />
           <folding>
             <element signature="e#1039#1040#0" expanded="true" />
             <element signature="e#1079#1080#0" expanded="true" />
@@ -1598,24 +1606,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lmp/dao/ProductDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="21.814816">
-          <caret line="122" column="45" selection-start-line="122" selection-start-column="38" selection-end-line="122" selection-end-column="45" />
-          <folding>
-            <marker date="1475544140000" expanded="true" signature="365:491" placeholder="SELECT id, v... product" />
-            <marker date="1475544140000" expanded="true" signature="549:662" placeholder="SELECT id, v... product" />
-            <marker date="1475544140000" expanded="true" signature="715:854" placeholder="INSERT into product... " />
-            <marker date="1475544140000" expanded="true" signature="907:1056" placeholder="UPDATE produ... " />
-            <marker date="1475544140000" expanded="true" signature="1113:1166" placeholder="UPDATE produ... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lmp/view/TestClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34237996">
-          <caret line="107" column="50" selection-start-line="107" selection-start-column="50" selection-end-line="107" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.697286">
+          <caret line="119" column="57" selection-start-line="119" selection-start-column="57" selection-end-line="119" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

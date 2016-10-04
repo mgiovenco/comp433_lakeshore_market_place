@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.lmp.dao;
 
 import com.lmp.model.Product;
@@ -17,13 +14,14 @@ import java.util.List;
  * @author Hattan
  */
 public class ProductDao {
+
     private static final String SELECT_PRODUCT = "SELECT id, vendor_product_id, name, description, product_available, picture, category_id, partner_id from product where id = ?";
     private static final String SELECT_ALL_PPRODUCT = "SELECT id, vendor_product_id, name, description, product_available, picture, category_id, partner_id from product";
     private static final String INSERT_PRODUCT = "INSERT into product (vendor_product_id, name, description, product_available, picture, category_id, partner_id) values (?, ?, ?, ?, ?, ?,?)";
     private static final String UPDATE_PRODUCT = "UPDATE product set vendor_product_id = ?, name = ?, description = ?, product_available = ?, picture = ?, category_id = ?, partner_id = ? where id = ?";
     private static final String UNAVILABLE_PRODUCT = "UPDATE product set product_available = ? where id = ?";
 
-    private static final String SELECT_PRODUCT_BY_CATEGORY = "id, vendor_product_id, name, description, product_available, picture, category_id, partner_id from product where category_id = ?";
+    private static final String SELECT_PRODUCT_BY_CATEGORY = "SELECT id, vendor_product_id, name, description, product_available, picture, category_id, partner_id from product where category_id = ?";
 
     /**
      * Select one product by id

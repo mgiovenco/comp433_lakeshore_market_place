@@ -117,6 +117,8 @@ public class TestClient {
 
         System.out.println("select All Products: " + productService.selectAllProducts());
 
+        System.out.println("selectProductsByCategoryId(1): " + productService.selectProductsByCategoryId(1));
+
         //End of product test
 
         //Partner test started
