@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,17 +14,15 @@ import java.util.List;
  * DAO for interacting with Partner table.
  */
 public class PartnerDao {
-    private static final String SELECT_PARTNER = "SELECT id, company_name, adress, city, state, postal_code, country, phone, email, URL, logo, active, created_on, updated_on from partner where id = ?";
-    private static final String SELECT_ALL_PARTNERS = "SELECT id, company_name, adress, city, state, postal_code, country, phone, email, URL, logo, active, created_on, updated_on from partner";
-    private static final String INSERT_PARTNER = "INSERT into partner (company_name, adress, city, state, postal_code, country, phone, email, URL, logo, active, created_on) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String UPDATE_PARTNER = "UPDATE partner set company_name = ?, adress = ?, city= ?, state= ?, postal_code= ?, country= ?, phone= ?, email= ?, URL= ?, logo, = ?, email = ?, active = ?, updated_on = ? where id = ?";
-    private static final String INACTIVATE_PARTNER = "UPDATE partner set active = ?, updated_on = ? where id = ?";
+    private static final String SELECT_PARTNER = "SELECT id, company_name, adress, city, state, postal_code, country, phone, email, URL, logo from partner where id = ?";
+    private static final String SELECT_ALL_PARTNERS = "SELECT id, company_name, adress, city, state, postal_code, country, phone, email, URL, logo from partner";
+    private static final String INSERT_PARTNER = "INSERT into partner (company_name, adress, city, state, postal_code, country, phone, email, URL, logo) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String UPDATE_PARTNER = "UPDATE partner set company_name = ?, adress = ?, city= ?, state= ?, postal_code= ?, country= ?, phone= ?, email= ?, URL= ?, logo = ? where id = ?";
 
     /**
      * @param id
      * @return
      */
-
     public Partner selectPartner(int id) throws SQLException {
         Partner partner = null;
 
@@ -37,7 +34,7 @@ public class PartnerDao {
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-                partner = new Partner(resultSet.getInt("id"), resultSet.getString("company_name"), resultSet.getString("adress"), resultSet.getString("city"), resultSet.getString("state"), resultSet.getString("postal_code"), resultSet.getString("country"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getString("URL"), resultSet.getString("logo"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on"));
+                partner = new Partner(resultSet.getInt("id"), resultSet.getString("company_name"), resultSet.getString("adress"), resultSet.getString("city"), resultSet.getString("state"), resultSet.getString("postal_code"), resultSet.getString("country"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getString("URL"), resultSet.getString("logo"));
             }
 
         } catch (SQLException e) {
@@ -63,7 +60,7 @@ public class PartnerDao {
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-                partnerList.add(new Partner(resultSet.getInt("id"), resultSet.getString("company_name"), resultSet.getString("adress"), resultSet.getString("city"), resultSet.getString("state"), resultSet.getString("postal_code"), resultSet.getString("country"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getString("URL"), resultSet.getString("logo"), resultSet.getBoolean("active"), resultSet.getTimestamp("created_on"), resultSet.getTimestamp("updated_on")));
+                partnerList.add(new Partner(resultSet.getInt("id"), resultSet.getString("company_name"), resultSet.getString("adress"), resultSet.getString("city"), resultSet.getString("state"), resultSet.getString("postal_code"), resultSet.getString("country"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getString("URL"), resultSet.getString("logo")));
             }
 
         } catch (SQLException e) {
@@ -88,18 +85,16 @@ public class PartnerDao {
 
                 PreparedStatement ps = conn.prepareStatement(INSERT_PARTNER, Statement.RETURN_GENERATED_KEYS);
 
-                ps.setString(1, partner.getCompany_name());
-                ps.setString(2, partner.getAdress());
+                ps.setString(1, partner.getCompanyName());
+                ps.setString(2, partner.getAddress());
                 ps.setString(3, partner.getCity());
                 ps.setString(4, partner.getState());
-                ps.setString(5, partner.getPostal_code());
+                ps.setString(5, partner.getPostalCode());
                 ps.setString(6, partner.getCountry());
                 ps.setString(7, partner.getPhone());
                 ps.setString(8, partner.getEmail());
                 ps.setString(9, partner.getURL());
                 ps.setString(10, partner.getLogo());
-                ps.setBoolean(11, partner.isActive());
-                ps.setTimestamp(12, new Timestamp(new java.util.Date().getTime()));
 
                 int result = ps.executeUpdate();
 
@@ -129,18 +124,18 @@ public class PartnerDao {
         try {
             Connection conn = DBHelper.getconnection();
             PreparedStatement ps = conn.prepareStatement(UPDATE_PARTNER);
-            ps.setString(1, partner.getCompany_name());
-            ps.setString(2, partner.getAdress());
+            ps.setString(1, partner.getCompanyName());
+            ps.setString(2, partner.getAddress());
             ps.setString(3, partner.getCity());
             ps.setString(4, partner.getState());
-            ps.setString(5, partner.getPostal_code());
+            ps.setString(5, partner.getPostalCode());
             ps.setString(6, partner.getCountry());
             ps.setString(7, partner.getPhone());
             ps.setString(8, partner.getEmail());
             ps.setString(9, partner.getURL());
             ps.setString(10, partner.getLogo());
-            ps.setBoolean(11, partner.isActive());
-            ps.setTimestamp(12, new Timestamp(new java.util.Date().getTime()));
+            ps.setInt(11, partner.getId());
+
             int result = ps.executeUpdate();
 
             if (result == 0) {
@@ -150,27 +145,6 @@ public class PartnerDao {
         } catch (SQLException e) {
             System.out.println("SQLException: " + e);
 
-        }
-    }
-
-    public void updatePartnerActiveStatus(int id, boolean status) {
-
-        try {
-            Connection conn = DBHelper.getconnection();
-
-            PreparedStatement ps = conn.prepareStatement(INACTIVATE_PARTNER);
-            ps.setBoolean(1, status);
-            ps.setTimestamp(2, new Timestamp(new java.util.Date().getTime()));
-            ps.setInt(3, id);
-
-            int result = ps.executeUpdate();
-
-            if (result == 0) {
-                System.out.println("No partner found for partner id: " + id);
-            }
-
-        } catch (SQLException e) {
-            System.out.println("SQLException: " + e);
         }
     }
 }

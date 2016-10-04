@@ -1,21 +1,16 @@
 package com.lmp.view;
 
-import com.lmp.dao.CustomerDao;
 import com.lmp.dao.CustomerOrderDao;
-import com.lmp.dao.ProductDao;
 import com.lmp.dao.PartnerDao;
-import com.lmp.model.Customer;
-import com.lmp.model.CustomerAddress;
-import com.lmp.model.CustomerBillingInfo;
+import com.lmp.dao.ProductDao;
 import com.lmp.model.CustomerOrder;
 import com.lmp.model.CustomerOrderDetail;
+import com.lmp.model.Partner;
 import com.lmp.model.Payment;
 import com.lmp.model.Product;
-import com.lmp.model.Partner;
 import com.lmp.service.CustomerOrderService;
-import com.lmp.service.CustomerService;
-import com.lmp.service.ProductService;
 import com.lmp.service.PartnerService;
+import com.lmp.service.ProductService;
 
 import java.math.BigDecimal;
 
@@ -75,7 +70,7 @@ public class TestClient {
         System.out.println("getDetailedCustomerOrder(1): " + customerOrderService.getDetailedCustomerOrder(1));
 
         System.out.println("getCustomerOrderStatus(1): " + customerOrderService.getCustomerOrderStatus(1));
-     
+
 
         CustomerOrder customerOrder2 = new CustomerOrder(1, BigDecimal.valueOf(88.88), "SHIPPED", "2222", 2, 2, 2);
         customerOrderService.updateCustomerOrder(customerOrder2);
@@ -95,39 +90,41 @@ public class TestClient {
         customerOrderService.addCustomerOrderDetail(customerOrderDetail1);
 
         System.out.println("getCustomerOrderDetail(2): " + customerOrderService.getCustomerOrderDetail(2));
-        System.out.println("getCustomerOrderDetailsByOrderId(1): "  + customerOrderService.getCustomerOrderDetailsByOrderId(1));
-        
-        
-        
-  //Start of the Product test
-        
-        System.out.println("###Product Test###");       
+        System.out.println("getCustomerOrderDetailsByOrderId(1): " + customerOrderService.getCustomerOrderDetailsByOrderId(1));
+
+
+        //Start of the Product test
+
+        System.out.println("###Product Test###");
         ProductService productService = new ProductService(new ProductDao());
 
-       Product productTest = new Product(1, "1234", "ProductTest", "veryCool", true, 1, 1, "picture");
-       productService.createProduct(productTest);
-        
-        System.out.println("Select productTest by id: " + productService.getProduct(4));
-        
-        System.out.println("select All Products: " + productService.selectAllProducts());
-        
+        Product productTest = new Product(1, "1234", "ProductTest", "veryCool", true, 1, 1, "picture");
+        productService.createProduct(productTest);
 
-       
-  //End of product test
-  
-  //Partner test started
-        
-        System.out.println("###Partner Test###");       
+        System.out.println("Select productTest by id: " + productService.getProduct(4));
+
+        System.out.println("select All Products: " + productService.selectAllProducts());
+
+
+        //End of product test
+
+        //Partner test started
+
+        System.out.println("###Partner Test###");
+        System.out.println("THIS IS PARTNER SERVICE TEST");
         PartnerService partnerService = new PartnerService(new PartnerDao());
 
-        Partner partnerTest = new Partner(1, "Myco", "6331 N Kenmore Ave", "Chicago", "IL", "60660", "USA", "800-556-8876", "abc@xyz.com", "http://www.xyz.com/", true);
-        partnerService.createPartner(partnerTest);
-        
-        System.out.println("Select partnerTest by id: " + partnerService.getPartner(1));
-        
-        System.out.println("select All Partners: " + partnerService.selectAllPartner());
-        
-     
-  //End of partner test
+        System.out.println("getPartner(1): " + partnerService.getPartner(1));
+        System.out.println("listPartners: " + partnerService.listPartners());
+
+        Partner partner1 = new Partner("Myco", "6331 N Kenmore Ave", "Chicago", "IL", "60660", "USA", "800-556-8876", "abc@xyz.com", "http://www.xyz.com", "this is a logo");
+        partnerService.addPartner(partner1);
+        System.out.println("listPartners - after new partner add: " + partnerService.listPartners());
+
+        Partner partner2 = new Partner(1, "Myorg", "6332 N Kenmore Ave", "Chicago", "IL", "60660", "USA", "800-666-7776", "abc@abc.com", "http://www.abc.com", "mylogo");
+        partnerService.updatePartner(partner2);
+        System.out.println("listPartners - after update: " + partnerService.listPartners());
+
+        //End of partner test
     }
 }

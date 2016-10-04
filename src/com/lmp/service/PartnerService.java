@@ -52,12 +52,4 @@ public class PartnerService {
         partnerDao.updatePartner(partner);
     }
 
-    /**
-     * Delete a partner.
-     * @param id
-     */
-    public void deletePartner(int id) {
-        partnerDao.updatePartnerActiveStatus(id, false);
-    }
-
 }

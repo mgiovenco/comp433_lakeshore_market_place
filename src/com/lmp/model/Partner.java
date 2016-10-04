@@ -1,83 +1,59 @@
 package com.lmp.model;
 
-import java.sql.Timestamp;
-
 /**
  * This class represents Partner information.
  */
 public class Partner {
 
     private int id;
-    private String company_name;
-    private String adress;
+    private String companyName;
+    private String address;
     private String city;
     private String state;
-    private String postal_code;
+    private String postalCode;
     private String country;
     private String phone;
     private String email;
     private String URL;
     private String logo;
-    private boolean active;
-    private Timestamp createdOn;
-    private Timestamp updatedOn;
 
-    public Partner(String company_name, String adress, String city, String state, String postal_code, String country, String phone, String email, String URL, String logo, boolean active) {
-        this.company_name = company_name;
-        this.adress = adress;
+    public Partner(int id, String companyName, String address, String city, String state, String postalCode, String country, String phone, String email, String URL, String logo) {
+        this.id = id;
+        this.companyName = companyName;
+        this.address = address;
         this.city = city;
         this.state = state;
-        this.postal_code = postal_code;
+        this.postalCode = postalCode;
         this.country = country;
         this.phone = phone;
         this.email = email;
         this.URL = URL;
         this.logo = logo;
-        this.active = active;
     }
 
-    public Partner(int id, String company_name, String adress, String city, String state, String postal_code, String country, String phone, String email, String URL, String logo, boolean active) {
-        this.id = id;
-        this.company_name = company_name;
-        this.adress = adress;
+    public Partner(String companyName, String address, String city, String state, String postalCode, String country, String phone, String email, String URL, String logo) {
+        this.companyName = companyName;
+        this.address = address;
         this.city = city;
         this.state = state;
-        this.postal_code = postal_code;
+        this.postalCode = postalCode;
         this.country = country;
         this.phone = phone;
         this.email = email;
         this.URL = URL;
         this.logo = logo;
-        this.active = active;
-    }
-
-    public Partner(int id, String company_name, String adress, String city, String state, String postal_code, String country, String phone, String email, String URL, String logo, boolean active, Timestamp createdOn, Timestamp updatedOn) {
-        this.id = id;
-        this.company_name = company_name;
-        this.adress = adress;
-        this.city = city;
-        this.state = state;
-        this.postal_code = postal_code;
-        this.country = country;
-        this.phone = phone;
-        this.email = email;
-        this.URL = URL;
-        this.logo = logo;
-        this.active = active;
-        this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getCompany_name() {
-        return company_name;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
     public String getCity() {
@@ -88,8 +64,8 @@ public class Partner {
         return state;
     }
 
-    public String getPostal_code() {
-        return postal_code;
+    public String getPostalCode() {
+        return postalCode;
     }
 
     public String getCountry() {
@@ -112,18 +88,6 @@ public class Partner {
         return logo;
     }
 
-    public boolean isActive() {
-        return active;
-    }
-
-    public Timestamp getCreatedOn() {
-        return createdOn;
-    }
-
-    public Timestamp getUpdatedOn() {
-        return updatedOn;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -132,42 +96,36 @@ public class Partner {
         Partner partner = (Partner) o;
 
         if (getId() != partner.getId()) return false;
-        if (isActive() != partner.isActive()) return false;
-        if (getCompany_name() != null ? !getCompany_name().equals(partner.getCompany_name()) : partner.getCompany_name() != null)
+        if (getCompanyName() != null ? !getCompanyName().equals(partner.getCompanyName()) : partner.getCompanyName() != null)
             return false;
-        if (getAdress() != null ? !getAdress().equals(partner.getAdress()) : partner.getAdress() != null) return false;
+        if (getAddress() != null ? !getAddress().equals(partner.getAddress()) : partner.getAddress() != null)
+            return false;
         if (getCity() != null ? !getCity().equals(partner.getCity()) : partner.getCity() != null) return false;
         if (getState() != null ? !getState().equals(partner.getState()) : partner.getState() != null) return false;
-        if (getPostal_code() != null ? !getPostal_code().equals(partner.getPostal_code()) : partner.getPostal_code() != null)
+        if (getPostalCode() != null ? !getPostalCode().equals(partner.getPostalCode()) : partner.getPostalCode() != null)
             return false;
         if (getCountry() != null ? !getCountry().equals(partner.getCountry()) : partner.getCountry() != null)
             return false;
         if (getPhone() != null ? !getPhone().equals(partner.getPhone()) : partner.getPhone() != null) return false;
         if (getEmail() != null ? !getEmail().equals(partner.getEmail()) : partner.getEmail() != null) return false;
         if (getURL() != null ? !getURL().equals(partner.getURL()) : partner.getURL() != null) return false;
-        if (getLogo() != null ? !getLogo().equals(partner.getLogo()) : partner.getLogo() != null) return false;
-        if (getCreatedOn() != null ? !getCreatedOn().equals(partner.getCreatedOn()) : partner.getCreatedOn() != null)
-            return false;
-        return getUpdatedOn() != null ? getUpdatedOn().equals(partner.getUpdatedOn()) : partner.getUpdatedOn() == null;
+        return getLogo() != null ? getLogo().equals(partner.getLogo()) : partner.getLogo() == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = getId();
-        result = 31 * result + (getCompany_name() != null ? getCompany_name().hashCode() : 0);
-        result = 31 * result + (getAdress() != null ? getAdress().hashCode() : 0);
+        result = 31 * result + (getCompanyName() != null ? getCompanyName().hashCode() : 0);
+        result = 31 * result + (getAddress() != null ? getAddress().hashCode() : 0);
         result = 31 * result + (getCity() != null ? getCity().hashCode() : 0);
         result = 31 * result + (getState() != null ? getState().hashCode() : 0);
-        result = 31 * result + (getPostal_code() != null ? getPostal_code().hashCode() : 0);
+        result = 31 * result + (getPostalCode() != null ? getPostalCode().hashCode() : 0);
         result = 31 * result + (getCountry() != null ? getCountry().hashCode() : 0);
         result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
         result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
         result = 31 * result + (getURL() != null ? getURL().hashCode() : 0);
         result = 31 * result + (getLogo() != null ? getLogo().hashCode() : 0);
-        result = 31 * result + (isActive() ? 1 : 0);
-        result = 31 * result + (getCreatedOn() != null ? getCreatedOn().hashCode() : 0);
-        result = 31 * result + (getUpdatedOn() != null ? getUpdatedOn().hashCode() : 0);
         return result;
     }
 
@@ -175,19 +133,16 @@ public class Partner {
     public String toString() {
         return "Partner{" +
                 "id=" + id +
-                ", company_name='" + company_name + '\'' +
-                ", adress='" + adress + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
-                ", postal_code='" + postal_code + '\'' +
+                ", postalCode='" + postalCode + '\'' +
                 ", country='" + country + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", URL='" + URL + '\'' +
                 ", logo='" + logo + '\'' +
-                ", active=" + active +
-                ", createdOn=" + createdOn +
-                ", updatedOn=" + updatedOn +
                 '}';
     }
 }
