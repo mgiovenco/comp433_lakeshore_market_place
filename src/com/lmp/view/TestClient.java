@@ -1,14 +1,19 @@
 package com.lmp.view;
 
+import com.lmp.dao.CustomerDao;
 import com.lmp.dao.CustomerOrderDao;
 import com.lmp.dao.PartnerDao;
 import com.lmp.dao.ProductDao;
+import com.lmp.model.Customer;
+import com.lmp.model.CustomerAddress;
+import com.lmp.model.CustomerBillingInfo;
 import com.lmp.model.CustomerOrder;
 import com.lmp.model.CustomerOrderDetail;
 import com.lmp.model.Partner;
 import com.lmp.model.Payment;
 import com.lmp.model.Product;
 import com.lmp.service.CustomerOrderService;
+import com.lmp.service.CustomerService;
 import com.lmp.service.PartnerService;
 import com.lmp.service.ProductService;
 
@@ -18,7 +23,7 @@ public class TestClient {
 
     public static void main(String[] args) throws Exception {
 
-        /*System.out.println("###CustomerService Test###");
+        System.out.println("###CustomerService Test###");
         CustomerService customerService = new CustomerService(new CustomerDao());
         System.out.println("getCustomer(1): " + customerService.getCustomer(1));
         System.out.println("listCustomers: " + customerService.listCustomers());
@@ -56,7 +61,7 @@ public class TestClient {
         CustomerBillingInfo customerBillingInfo2 = new CustomerBillingInfo(1, "5555555555555555555", "1218", false);
         customerService.updateCustomerBillingInfo(customerBillingInfo2);
 
-        System.out.println("getCustomerBillingInfoByCustId(1): " + customerService.getCustomerBillingInfoByCustId(1));*/
+        System.out.println("getCustomerBillingInfoByCustId(1): " + customerService.getCustomerBillingInfoByCustId(1));
 
         System.out.println("###CustomerOrder Test###");
         CustomerOrderService customerOrderService = new CustomerOrderService(new CustomerOrderDao());
@@ -98,13 +103,19 @@ public class TestClient {
         System.out.println("###Product Test###");
         ProductService productService = new ProductService(new ProductDao());
 
-        Product productTest = new Product(1, "1234", "ProductTest", "veryCool", true, 1, 1, "picture");
-        productService.createProduct(productTest);
+        Product productTest1 = new Product(3, "1234", "ProductTest", "veryCool", true, 1, 1, "picture");
+        productService.createProduct(productTest1);
+        productService.updateProductAvailability(3, false);
 
         System.out.println("Select productTest by id: " + productService.getProduct(4));
 
-        System.out.println("select All Products: " + productService.selectAllProducts());
+        Product productTest2 = new Product(4, "HB1", "ProductTestAfterChanged", "veryCool", true, 1, 1, "picture");
+        productService.updateProduct(productTest2);
+        System.out.println("Product after update: " + productService.getProduct(4));
+        productService.updateProductAvailability(4, false);
+        System.out.println("Product after Availability update: " + productService.getProduct(4));
 
+        System.out.println("select All Products: " + productService.selectAllProducts());
 
         //End of product test
 

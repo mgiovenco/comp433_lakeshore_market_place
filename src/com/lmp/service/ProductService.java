@@ -68,7 +68,7 @@ public class ProductService {
 	/**
 	 * Select all products belong to one category.
 	 *
-	 * @param product
+	 * @param id
 	 */
 	public List<Product> selectProductsByCategoryId(int id) throws SQLException {
 		return productDao.selectProductsByCategoryId(id);
