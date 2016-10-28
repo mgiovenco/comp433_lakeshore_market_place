@@ -1,21 +1,21 @@
 package com.lmp.view;
 
-import com.lmp.dao.CustomerDao;
-import com.lmp.dao.CustomerOrderDao;
-import com.lmp.dao.PartnerDao;
-import com.lmp.dao.ProductDao;
-import com.lmp.model.Customer;
-import com.lmp.model.CustomerAddress;
-import com.lmp.model.CustomerBillingInfo;
-import com.lmp.model.CustomerOrder;
-import com.lmp.model.CustomerOrderDetail;
-import com.lmp.model.Partner;
-import com.lmp.model.Payment;
-import com.lmp.model.Product;
-import com.lmp.service.CustomerOrderService;
-import com.lmp.service.CustomerService;
-import com.lmp.service.PartnerService;
-import com.lmp.service.ProductService;
+import com.lmp.customer.dao.CustomerDao;
+import com.lmp.customer.service.CustomerService;
+import com.lmp.order.dao.CustomerOrderDao;
+import com.lmp.partner.dao.PartnerDao;
+import com.lmp.product.dao.ProductDao;
+import com.lmp.customer.model.Customer;
+import com.lmp.customer.model.CustomerAddress;
+import com.lmp.customer.model.CustomerBillingInfo;
+import com.lmp.order.model.CustomerOrder;
+import com.lmp.order.model.CustomerOrderDetail;
+import com.lmp.partner.model.Partner;
+import com.lmp.order.model.Payment;
+import com.lmp.product.model.Product;
+import com.lmp.order.service.CustomerOrderService;
+import com.lmp.partner.service.PartnerService;
+import com.lmp.product.service.ProductService;
 
 import java.math.BigDecimal;
 
